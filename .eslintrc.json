@@ -30,6 +30,7 @@
 		"no-tabs": "off",
 		"react/jsx-indent": ["error", "tab"],
 		"indent": ["error", "tab"],
+		"react/no-unescaped-entities": "off",
 		"import/order": [
 			"error",
 			{
