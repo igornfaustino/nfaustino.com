@@ -1,5 +1,5 @@
-export const defaultTheme = {
-  colors: {},
+const defaultTheme = {
+	colors: {},
 } as const;
 
 export type ThemeType = typeof defaultTheme;

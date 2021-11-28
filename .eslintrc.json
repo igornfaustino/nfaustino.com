@@ -1,3 +1,53 @@
 {
-  "extends": "next/core-web-vitals"
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"extends": ["plugin:react/recommended", "airbnb", "plugin:import/typescript"],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"plugins": ["react", "@typescript-eslint"],
+	"ignorePatterns": ["*.d.ts", "*.js", "node_modules"],
+	"rules": {
+		"import/prefer-default-export": "off",
+		"import/extensions": "off",
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-filename-extension": [
+			1,
+			{ "extensions": [".js", ".jsx", ".tsx"] }
+		],
+		"react/jsx-props-no-spreading": "off",
+		"func-names": ["error", "as-needed"],
+		"react/jsx-one-expression-per-line": "off",
+		"implicit-arrow-linebreak": "off",
+		"no-tabs": "off",
+		"react/jsx-indent": ["error", "tab"],
+		"indent": ["error", "tab"],
+		"import/order": [
+			"error",
+			{
+				"groups": ["builtin", "external", "internal"],
+				"pathGroups": [
+					{
+						"pattern": "react",
+						"group": "external",
+						"position": "before"
+					}
+				],
+				"pathGroupsExcludedImportTypes": ["react"],
+				"newlines-between": "always",
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				}
+			}
+		]
+	}
 }
