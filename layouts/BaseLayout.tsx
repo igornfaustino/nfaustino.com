@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import styled from 'styled-components';
 
+import Header from '../components/Header';
 import SocialMediaInfo from '../components/SocialMediaInfo';
 
 const Wrapper = styled.main`
@@ -10,6 +11,10 @@ const Wrapper = styled.main`
 	align-items: center;
 	min-height: 100vh;
 	flex-direction: column;
+`;
+
+const Nav = styled.nav`
+	width: 100%;
 `;
 
 const Main = styled.main`
@@ -26,7 +31,9 @@ const Footer = styled.footer`
 const BaseLayout: FC = function ({ children }) {
 	return (
 		<Wrapper>
-			<nav />
+			<Nav>
+				<Header />
+			</Nav>
 			<Main>{children}</Main>
 			<Footer>
 				<SocialMediaInfo />
