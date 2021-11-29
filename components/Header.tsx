@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 import Branding from './Branding';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -14,6 +15,7 @@ const Wrapper = styled.div`
 const MenuArea = styled.div`
 	display: flex;
 	gap: 32px;
+	align-items: center;
 `;
 
 const MenuItem = styled.a`
@@ -31,6 +33,7 @@ const Header = function () {
 				<Link href="/blog">
 					<MenuItem>Blog</MenuItem>
 				</Link>
+				<ThemeSwitcher />
 			</MenuArea>
 		</Wrapper>
 	);

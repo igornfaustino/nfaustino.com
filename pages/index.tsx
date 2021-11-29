@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import { Title } from '../components/Title';
 import TypeWriterText from '../components/TypeWriterText';
-import useTheme from '../hooks/useTheme';
 import BaseLayout from '../layouts/BaseLayout';
 
 const Wrapper = styled.div`
@@ -24,7 +23,6 @@ const CenterGroup = styled.div`
 `;
 
 const Home: NextPage = function () {
-	const { toggleTheme } = useTheme();
 	return (
 		<BaseLayout>
 			<Head>
@@ -40,9 +38,6 @@ const Home: NextPage = function () {
 						Hi, I'am Igor and currently I'am working as a Web Developer at
 						aftersale
 					</TypeWriterText>
-					<button onClick={toggleTheme} type="button">
-						change theme
-					</button>
 				</CenterGroup>
 			</Wrapper>
 		</BaseLayout>
