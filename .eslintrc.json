@@ -38,6 +38,7 @@
 		"indent": ["error", "tab"],
 		"react/no-unescaped-entities": "off",
 		"object-curly-newline": "off",
+		"consistent-return": "off",
 		"import/order": [
 			"error",
 			{

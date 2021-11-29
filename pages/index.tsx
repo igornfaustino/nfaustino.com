@@ -7,12 +7,16 @@ import TypeWriterText from '../components/TypeWriterText';
 import useTheme from '../hooks/useTheme';
 import BaseLayout from '../layouts/BaseLayout';
 
-const Wrapper = styled.main`
+const Wrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	max-width: 500px;
+	width: 500px;
 	padding: 8px;
+
+	@media (max-width: 500px) {
+		width: 100vw;
+	}
 `;
 
 const CenterGroup = styled.div`

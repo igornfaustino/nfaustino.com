@@ -8,6 +8,8 @@ import {
 } from 'react-icons/fa';
 import styled from 'styled-components';
 
+import useMediaQuery from '../hooks/useMediaQuery';
+
 const Wrapper = styled.div`
 	display: flex;
 	gap: 32px;
@@ -35,6 +37,8 @@ const hoverAnimation = {
 };
 
 const SocialMediaInfo = function () {
+	const { isDesktop } = useMediaQuery();
+
 	return (
 		<Wrapper>
 			<Links
@@ -42,7 +46,7 @@ const SocialMediaInfo = function () {
 				href="https://github.com/igornfaustino/nfaustino.com"
 				target="_blank"
 			>
-				Source
+				{isDesktop && 'Source'}
 				<FaCode />
 			</Links>
 			<Links
@@ -50,7 +54,8 @@ const SocialMediaInfo = function () {
 				href="https://www.linkedin.com/in/igornfaustino"
 				target="_blank"
 			>
-				Linkedin
+				{isDesktop && 'Linkedin'}
+
 				<FaLinkedin />
 			</Links>
 			<Links
@@ -58,7 +63,8 @@ const SocialMediaInfo = function () {
 				href="https://github.com/igornfaustino"
 				target="_blank"
 			>
-				GitHub
+				{isDesktop && 'GitHub'}
+
 				<FaGithub />
 			</Links>
 			<Links
@@ -66,7 +72,8 @@ const SocialMediaInfo = function () {
 				href="https://twitter.com/igornfaustino"
 				target="_blank"
 			>
-				Twitter
+				{isDesktop && 'Twitter'}
+
 				<FaTwitter />
 			</Links>
 			<Links
@@ -74,7 +81,8 @@ const SocialMediaInfo = function () {
 				href="https://www.youtube.com/channel/UCIOtxH-8UsIX8J7iHZ8px5w"
 				target="_blank"
 			>
-				Youtube
+				{isDesktop && 'Youtube'}
+
 				<FaYoutube />
 			</Links>
 		</Wrapper>
