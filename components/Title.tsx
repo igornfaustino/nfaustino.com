@@ -5,4 +5,5 @@ export const Title = styled.h1`
 	width: fit-content;
 	color: ${({ theme }) => theme.colors.backgroundColor};
 	background: ${({ theme }) => theme.colors.textColor};
+	padding: 0 8px;
 `;

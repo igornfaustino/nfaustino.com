@@ -55,7 +55,6 @@ const SocialMediaInfo = function () {
 				target="_blank"
 			>
 				{isDesktop && 'Linkedin'}
-
 				<FaLinkedin />
 			</Links>
 			<Links
@@ -64,7 +63,6 @@ const SocialMediaInfo = function () {
 				target="_blank"
 			>
 				{isDesktop && 'GitHub'}
-
 				<FaGithub />
 			</Links>
 			<Links
@@ -73,7 +71,6 @@ const SocialMediaInfo = function () {
 				target="_blank"
 			>
 				{isDesktop && 'Twitter'}
-
 				<FaTwitter />
 			</Links>
 			<Links
@@ -82,7 +79,6 @@ const SocialMediaInfo = function () {
 				target="_blank"
 			>
 				{isDesktop && 'Youtube'}
-
 				<FaYoutube />
 			</Links>
 		</Wrapper>
