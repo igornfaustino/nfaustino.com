@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import { Title } from '../components/Title';
+import TypeWriterText from '../components/TypeWriterText';
 import useTheme from '../hooks/useTheme';
 import BaseLayout from '../layouts/BaseLayout';
 
@@ -10,6 +11,11 @@ const Wrapper = styled.main`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 500px;
+`;
+
+const CenterGroup = styled.div`
+	width: 100%;
 `;
 
 const Home: NextPage = function () {
@@ -23,16 +29,16 @@ const Home: NextPage = function () {
 			</Head>
 
 			<Wrapper>
-				<div>
+				<CenterGroup>
 					<Title>IGOR N FAUSTINO</Title>
-					<p>
+					<TypeWriterText>
 						Hi, I'am Igor and currently I'am working as a Web Developer at
 						aftersale
-					</p>
+					</TypeWriterText>
 					<button onClick={toggleTheme} type="button">
 						change theme
 					</button>
-				</div>
+				</CenterGroup>
 			</Wrapper>
 		</BaseLayout>
 	);
