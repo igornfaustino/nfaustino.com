@@ -3,16 +3,17 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import { Title } from '../components/Title';
+import useTheme from '../hooks/useTheme';
 import BaseLayout from '../layouts/BaseLayout';
 
 const Wrapper = styled.main`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
 `;
 
 const Home: NextPage = function () {
+	const { toggleTheme } = useTheme();
 	return (
 		<BaseLayout>
 			<Head>
@@ -28,6 +29,9 @@ const Home: NextPage = function () {
 						Hi, I'am Igor and currently I'am working as a Web Developer at
 						aftersale
 					</p>
+					<button onClick={toggleTheme} type="button">
+						change theme
+					</button>
 				</div>
 			</Wrapper>
 		</BaseLayout>
