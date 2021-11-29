@@ -1,4 +1,11 @@
 import { motion } from 'framer-motion';
+import {
+	FaCode,
+	FaLinkedin,
+	FaTwitter,
+	FaGithub,
+	FaYoutube,
+} from 'react-icons/fa';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -13,6 +20,10 @@ const Links = styled(motion.a)`
 
 	padding-bottom: 4px;
 	border-bottom: 1px solid transparent;
+
+	display: flex;
+	align-items: center;
+	gap: 8px;
 
 	:hover {
 		border-bottom: 1px solid ${({ theme }) => theme.colors.textColor};
@@ -32,6 +43,7 @@ const SocialMediaInfo = function () {
 				target="_blank"
 			>
 				Source
+				<FaCode />
 			</Links>
 			<Links
 				whileHover={hoverAnimation}
@@ -39,13 +51,15 @@ const SocialMediaInfo = function () {
 				target="_blank"
 			>
 				Linkedin
+				<FaLinkedin />
 			</Links>
 			<Links
 				whileHover={hoverAnimation}
 				href="https://github.com/igornfaustino"
 				target="_blank"
 			>
-				Github
+				GitHub
+				<FaGithub />
 			</Links>
 			<Links
 				whileHover={hoverAnimation}
@@ -53,6 +67,15 @@ const SocialMediaInfo = function () {
 				target="_blank"
 			>
 				Twitter
+				<FaTwitter />
+			</Links>
+			<Links
+				whileHover={hoverAnimation}
+				href="https://www.youtube.com/channel/UCIOtxH-8UsIX8J7iHZ8px5w"
+				target="_blank"
+			>
+				Youtube
+				<FaYoutube />
 			</Links>
 		</Wrapper>
 	);
