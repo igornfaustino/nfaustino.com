@@ -11,7 +11,8 @@ const Wrapper = styled.main`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 500px;
+	max-width: 500px;
+	padding: 8px;
 `;
 
 const CenterGroup = styled.div`
