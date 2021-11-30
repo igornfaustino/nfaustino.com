@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
 
-import CareerItem from '../components/CareerItem';
+import CareerList from '../components/CareerList';
 import HipperLink from '../components/HipperLink';
 import { Title } from '../components/Title';
 import BaseLayout from '../layouts/BaseLayout';
@@ -49,71 +49,16 @@ const About: NextPage = function () {
 					I'm living in Brazil and when I'm not working I'll probably be playing
 					games, reading books or going for a run.
 				</p>
+
 				<hr style={{ width: '100%' }} />
+
 				<h2>Career</h2>
 
-				<CareerItem
-					position="Web Developer"
-					company="aftersale"
-					link="https://after.sale"
-					location="Curitiba, Brazil"
-					start="Sep 2020"
-				/>
-				<br />
-				<br />
-				<br />
-				<CareerItem
-					position="Web Developer"
-					company="aftersale"
-					link="https://after.sale"
-					location="Curitiba, Brazil"
-					start="Sep 2020"
-				/>
-				<br />
-				<br />
-				<br />
-				<CareerItem
-					position="Web Developer"
-					company="aftersale"
-					link="https://after.sale"
-					location="Curitiba, Brazil"
-					start="Sep 2020"
-				/>
+				<CareerList />
 
-				<br />
-				<br />
-				<br />
 				<hr style={{ width: '100%' }} />
 
 				<h2>Education</h2>
-
-				<CareerItem
-					position="Web Developer"
-					company="aftersale"
-					link="https://after.sale"
-					location="Curitiba, Brazil"
-					start="Sep 2020"
-				/>
-				<br />
-				<br />
-				<br />
-				<CareerItem
-					position="Web Developer"
-					company="aftersale"
-					link="https://after.sale"
-					location="Curitiba, Brazil"
-					start="Sep 2020"
-				/>
-				<br />
-				<br />
-				<br />
-				<CareerItem
-					position="Web Developer"
-					company="aftersale"
-					link="https://after.sale"
-					location="Curitiba, Brazil"
-					start="Sep 2020"
-				/>
 			</Wrapper>
 		</BaseLayout>
 	);
