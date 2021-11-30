@@ -39,6 +39,7 @@
 		"react/no-unescaped-entities": "off",
 		"object-curly-newline": "off",
 		"consistent-return": "off",
+		"react/require-default-props": "off",
 		"import/order": [
 			"error",
 			{
