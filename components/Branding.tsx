@@ -14,6 +14,12 @@ const StyledLink = styled.div`
 	color: ${({ theme }) => theme.colors.backgroundColor};
 	font-size: 30px;
 	font-weight: 700;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 `;
 
 const Branding = function () {
