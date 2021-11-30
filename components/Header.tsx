@@ -6,7 +6,7 @@ import ThemeSwitcher from './ThemeSwitcher';
 
 const Wrapper = styled.div`
 	display: flex;
-	padding: 16px 32px;
+	padding: 16px 16px;
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
