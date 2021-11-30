@@ -24,7 +24,7 @@ const StyledLink = styled.div`
 
 const Branding = function () {
 	return (
-		<Link href="/">
+		<Link href="/" passHref>
 			<StyledLink>I</StyledLink>
 		</Link>
 	);

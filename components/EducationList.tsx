@@ -15,6 +15,7 @@ const EducationList = function () {
 		<Wrapper>
 			{EDUCATION.map((education) => (
 				<EducationItem
+					key={`${education.school}-${education.course}`}
 					course={education.course}
 					school={education.school}
 					location={education.location}

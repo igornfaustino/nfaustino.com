@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
@@ -18,19 +18,20 @@ const TypeWriterText = function (props: Props) {
 	const [displayText, setDisplayText] = useState('');
 	const duration = 15;
 
-	const typeLetter = (tokens: string[]) => {
+	const typeLetter = useCallback((tokens: string[]) => {
 		const nextLetter = tokens.shift();
 		setDisplayText((prev) => `${prev}${nextLetter}`);
 
 		if (tokens.length) {
 			setTimeout(() => typeLetter(tokens), duration);
 		}
-	};
+	}, []);
 
 	useEffect(() => {
+		setDisplayText('');
 		const textTokens = children.split('');
 		setTimeout(() => typeLetter(textTokens), duration);
-	}, []);
+	}, [children, typeLetter]);
 
 	return (
 		<p>

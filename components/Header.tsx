@@ -26,6 +26,8 @@ const MenuItem = styled.a`
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	color: ${({ theme }) => theme.colors.textColor};
+	text-decoration: none;
 `;
 
 const Header = function () {
@@ -33,10 +35,10 @@ const Header = function () {
 		<Wrapper>
 			<Branding />
 			<MenuArea>
-				<Link href="/about">
+				<Link href="/about" passHref>
 					<MenuItem>About</MenuItem>
 				</Link>
-				<Link href="/blog">
+				<Link href="/blog" passHref>
 					<MenuItem>Blog</MenuItem>
 				</Link>
 				<ThemeSwitcher />

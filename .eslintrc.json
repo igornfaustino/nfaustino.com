@@ -8,7 +8,8 @@
 		"plugin:react/recommended",
 		"airbnb",
 		"plugin:import/typescript",
-		"prettier"
+		"prettier",
+		"next"
 	],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {

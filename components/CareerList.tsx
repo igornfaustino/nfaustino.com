@@ -15,6 +15,7 @@ const CareerList = function () {
 		<Wrapper>
 			{JOBS.map((job) => (
 				<CareerItem
+					key={`${job.company}-${job.position}`}
 					position={job.position}
 					company={job.company}
 					link={job.link}
