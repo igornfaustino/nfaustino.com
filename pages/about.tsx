@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import CareerList from '../components/CareerList';
+import EducationList from '../components/EducationList';
 import HipperLink from '../components/HipperLink';
 import { Title } from '../components/Title';
 import BaseLayout from '../layouts/BaseLayout';
@@ -59,6 +60,8 @@ const About: NextPage = function () {
 				<hr style={{ width: '100%' }} />
 
 				<h2>Education</h2>
+
+				<EducationList />
 			</Wrapper>
 		</BaseLayout>
 	);
