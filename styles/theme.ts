@@ -9,8 +9,8 @@ export interface ThemeType {
 export const darkTheme = {
 	colors: {
 		backgroundColor: '#262934',
-		textColor: '#f3f5f5',
-		selection: '#d3d5d5',
+		textColor: '#e3e5e5',
+		selection: '#c3c5c5',
 	},
 } as const;
 
