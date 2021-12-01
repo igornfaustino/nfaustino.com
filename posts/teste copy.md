@@ -1,7 +1,7 @@
 ---
-title: criando uma criptomoeda
+title: criando uma teste
 slug: home
-date: 2021-11-30
+date: 2021-11-31
 description: Comecei a estudar mais sobre desenvolvimento de aplicações blockchain recentemente, e por mais que exista muito conteúdo presente na internet sobre o assunto, achei poucas coisas juntando toda a informação necessária, ainda mais para um completo iniciante no assunto como eu.
 tags: development,productivity
 ---

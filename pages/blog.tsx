@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { Title } from '../components/Title';
 import BaseLayout from '../layouts/BaseLayout';
-import { getAllPosts } from '../lib/post';
+import { getAllPostsMetadata, PostMetadata } from '../lib/post';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 `;
 
 type Props = {
-	posts: string[];
+	posts: PostMetadata[];
 };
 
 const Blog: NextPage<Props> = function ({ posts }) {
@@ -40,7 +40,7 @@ const Blog: NextPage<Props> = function ({ posts }) {
 				</p>
 
 				{posts.map((post) => (
-					<p key={post}>{post}</p>
+					<p key={post.title}>{post.title}</p>
 				))}
 			</Wrapper>
 		</BaseLayout>
@@ -48,7 +48,7 @@ const Blog: NextPage<Props> = function ({ posts }) {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-	const posts = await getAllPosts();
+	const posts = await getAllPostsMetadata();
 
 	return {
 		props: {
