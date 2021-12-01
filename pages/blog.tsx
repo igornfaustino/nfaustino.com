@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
 
+import PostItem from '../components/PostItem';
 import { Title } from '../components/Title';
 import BaseLayout from '../layouts/BaseLayout';
 import { getAllPostsMetadata, PostMetadata } from '../lib/post';
@@ -39,8 +40,10 @@ const Blog: NextPage<Props> = function ({ posts }) {
 					posts are in both portuguese and english. Hope you like :)
 				</p>
 
+				<hr style={{ width: '100%' }} />
+
 				{posts.map((post) => (
-					<p key={post.title}>{post.title}</p>
+					<PostItem key={post.title} post={post} />
 				))}
 			</Wrapper>
 		</BaseLayout>
