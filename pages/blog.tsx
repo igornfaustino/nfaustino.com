@@ -43,7 +43,7 @@ const Blog: NextPage<Props> = function ({ posts }) {
 				<hr style={{ width: '100%' }} />
 
 				{posts.map((post) => (
-					<PostItem key={post.title} post={post} />
+					<PostItem key={post.slug} post={post} />
 				))}
 			</Wrapper>
 		</BaseLayout>

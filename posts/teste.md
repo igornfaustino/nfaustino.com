@@ -1,6 +1,6 @@
 ---
 title: criando uma criptomoeda
-slug: home
+slug: create-a-crypto
 date: 2021-11-30
 description: Comecei a estudar mais sobre desenvolvimento de aplicações blockchain recentemente, e por mais que exista muito conteúdo presente na internet sobre o assunto, achei poucas coisas juntando toda a informação necessária, ainda mais para um completo iniciante no assunto como eu.
 tags: development,productivity
