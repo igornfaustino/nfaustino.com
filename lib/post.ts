@@ -22,9 +22,27 @@ export const readPost = (postFile: string) => {
 	const post = readFileSync(path);
 	const { data, content } = matter(post);
 
+	const slug = postFile.replace('.md', '');
+	const metadata: MatterMetadata = {
+		...(data as Omit<MatterMetadata, 'slug'>),
+		slug,
+	};
+
 	return {
-		metadata: data as MatterMetadata,
+		metadata,
 		content,
+	};
+};
+
+export const getPostBySlug = (slug: string) => {
+	const { content, metadata } = readPost(`${slug}.md`);
+
+	return {
+		content,
+		metadata: {
+			...metadata,
+			date: metadata.date.toISOString(),
+		},
 	};
 };
 

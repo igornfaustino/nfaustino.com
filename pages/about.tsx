@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import CareerList from '../components/CareerList';
 import EducationList from '../components/EducationList';
-import HipperLink from '../components/HipperLink';
+import HyperLink from '../components/HipperLink';
 import { Title } from '../components/Title';
 import BaseLayout from '../layouts/BaseLayout';
 
@@ -37,13 +37,9 @@ const About: NextPage = function () {
 				</p>
 				<p>
 					I'm currently working as web developer at{' '}
-					<HipperLink
-						href="https://after.sale"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<HyperLink href="https://after.sale" target="_blank" rel="noreferrer">
 						aftersale
-					</HipperLink>{' '}
+					</HyperLink>{' '}
 					where I help build solutions tha can impact thousands of people.
 				</p>
 				<p>

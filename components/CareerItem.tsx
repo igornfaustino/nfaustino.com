@@ -1,7 +1,7 @@
 import { format, parseISO, intervalToDuration, formatDuration } from 'date-fns';
 import styled from 'styled-components';
 
-import HipperLink from './HipperLink';
+import HyperLink from './HipperLink';
 
 const Title = styled.h3`
 	margin: 4px 0;
@@ -44,9 +44,9 @@ const CareerItem = function (props: Props) {
 		<div>
 			<Title>
 				<Position>{position}</Position> at{' '}
-				<HipperLink href={link} target="_blank" rel="noreferrer">
+				<HyperLink href={link} target="_blank" rel="noreferrer">
 					{company}
-				</HipperLink>{' '}
+				</HyperLink>{' '}
 			</Title>
 			{location}
 			<br />
