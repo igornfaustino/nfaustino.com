@@ -23,6 +23,16 @@ const Wrapper = styled.div`
 		width: 100vw;
 	}
 
+	p {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	img {
+		height: 100%;
+		max-width: 100%;
+	}
+
 	table,
 	tr,
 	td,

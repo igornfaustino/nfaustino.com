@@ -218,31 +218,31 @@ $ npx hardhat run scripts/deploy.js --network localhost
 
 Aqui a informação importante que temos, é o endereço da nossa moeda.
 
-!Pasted image 20211004130950.png
+![Token deployed](/img/token_deployed.png)
 
 Vamos agora utilizar a extensão do metamask em nosso navegador. Primeiramente, precisamos nos conectar a nossa rede local
 
-!Pasted image 20211004131522.png
+![Metamask localhost](/img/metamask_localhost.png)
 
 Após isso, vamos importar uma das contas criadas pelo hardhat, utilizando o valor da private key
 
-!Pasted image 20211004131622.png
+![accounts](/img/test_accounts.png)
 
 Para isto, clique no botão, importar conta dentro do metamask e coloque a chave privada
 
-!Pasted image 20211004131710.png
+![import account](/img/import_account.png)
 
 Pronto, vamos agora adicionar nossa moeda nessa conta, utilizando o botão "Adicionar Token"
 
-!Pasted image 20211004131859.png
+![add token](/img/add_token.png)
 
 Na próxima tela, vamos colocar o endereço da nossa moeda na rede
 
-!Pasted image 20211004131957.png
+![add token address](/img/add_token_address.png)
 
 E ao confirmar a operação, nosso usuário já possui os 10 000 tokens iniciais da nossa moeda. Agora, podemos realizar os mesmos passos para importar um usuário diferente do metamask, e realizar transferências entre eles. Ao tentar realizar uma transferência entre usuários, o metamask irá mostrar uma tela de confirmação, alertando o preço da taxa em ethereum que será utilizada para realizar a operação, além do valor que será transferido para o novo usuário.
 
-!Pasted image 20211004132323.png
+![confirm](/img/confirm_transaction.png)
 
 ## Falando um pouco sobre o ERC-20
 
