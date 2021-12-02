@@ -9,6 +9,7 @@ import {
 
 import { ThemeProvider } from 'styled-components';
 
+import * as gtag from '../lib/gtag';
 import { getCurrentThemeFromStore, saveThemeOnStore } from '../lib/theme';
 import { darkTheme, lightTheme } from '../styles/theme';
 
@@ -28,6 +29,12 @@ const CustomThemeProvider: FC = function ({ children }) {
 	const toggleTheme = useCallback(() => {
 		setTheme((prevTheme) => {
 			const newTheme = prevTheme === 'dark' ? 'light' : 'dark';
+			gtag.event({
+				action: 'toggleTheme',
+				label: 'Change site theme',
+				category: 'personalization',
+				value: newTheme,
+			});
 			saveThemeOnStore(newTheme);
 			return newTheme;
 		});

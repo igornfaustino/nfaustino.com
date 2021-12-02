@@ -9,6 +9,7 @@ import {
 import styled from 'styled-components';
 
 import useMediaQuery from '../hooks/useMediaQuery';
+import * as gtag from '../lib/gtag';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -39,12 +40,22 @@ const hoverAnimation = {
 const SocialMediaInfo = function () {
 	const { isDesktop } = useMediaQuery();
 
+	const logClick = (socialMediaName: string) => () => {
+		gtag.event({
+			action: 'socialMedia',
+			label: 'Click on social media item',
+			category: 'CTA',
+			value: socialMediaName,
+		});
+	};
+
 	return (
 		<Wrapper>
 			<Links
 				whileHover={hoverAnimation}
 				href="https://github.com/igornfaustino/nfaustino.com"
 				target="_blank"
+				onClick={logClick('source')}
 			>
 				{isDesktop && 'Source'}
 				<FaCode />
@@ -53,6 +64,7 @@ const SocialMediaInfo = function () {
 				whileHover={hoverAnimation}
 				href="https://www.linkedin.com/in/igornfaustino"
 				target="_blank"
+				onClick={logClick('linkedin')}
 			>
 				{isDesktop && 'Linkedin'}
 				<FaLinkedin />
@@ -61,6 +73,7 @@ const SocialMediaInfo = function () {
 				whileHover={hoverAnimation}
 				href="https://github.com/igornfaustino"
 				target="_blank"
+				onClick={logClick('github')}
 			>
 				{isDesktop && 'GitHub'}
 				<FaGithub />
@@ -69,6 +82,7 @@ const SocialMediaInfo = function () {
 				whileHover={hoverAnimation}
 				href="https://twitter.com/igornfaustino"
 				target="_blank"
+				onClick={logClick('twitter')}
 			>
 				{isDesktop && 'Twitter'}
 				<FaTwitter />
@@ -77,6 +91,7 @@ const SocialMediaInfo = function () {
 				whileHover={hoverAnimation}
 				href="https://www.youtube.com/channel/UCIOtxH-8UsIX8J7iHZ8px5w"
 				target="_blank"
+				onClick={logClick('youtube')}
 			>
 				{isDesktop && 'Youtube'}
 				<FaYoutube />
