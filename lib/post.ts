@@ -11,10 +11,19 @@ export type PostMetadata = {
 	date: string;
 	description: string;
 	tags?: string;
+	readingTime: number;
 };
 
 type MatterMetadata = Omit<PostMetadata, 'date'> & {
 	date: Date;
+};
+
+export const getPostReadingTime = (content: string) => {
+	const wpm = 225;
+	const words = content.trim().split(/\s+/).length;
+	const time = Math.ceil(words / wpm);
+
+	return time;
 };
 
 export const readPost = (postFile: string) => {
@@ -26,6 +35,7 @@ export const readPost = (postFile: string) => {
 	const metadata: MatterMetadata = {
 		...(data as Omit<MatterMetadata, 'slug'>),
 		slug,
+		readingTime: getPostReadingTime(content),
 	};
 
 	return {

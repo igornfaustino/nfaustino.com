@@ -1,10 +1,8 @@
 ---
 title: Criando uma criptomoeda
 date: 2021-10-02
-description: Comecei a estudar mais sobre desenvolvimento de aplicações blockchain recentemente, e por mais que exista muito conteúdo presente na internet sobre o assunto, achei poucas coisas juntando toda a informação necessária, ainda mais para um completo iniciante no assunto como eu.
+description: Criando a primeira criptomoeda do zero utilizando a blockchain do ethereum de forma facil e rápida.
 ---
-
-# Criando uma criptomoeda
 
 Comecei a estudar mais sobre desenvolvimento de aplicações blockchain recentemente, e por mais que exista muito conteúdo presente na internet sobre o assunto, achei poucas coisas juntando toda a informação necessária, ainda mais para um completo iniciante no assunto como eu.
 Por isso estou criando esse artigo para juntar as informações que adquiri me aprofundando no assunto.
@@ -57,10 +55,10 @@ Selecione a opção `create a basic sample project` para permitir que o hardhat 
 
 Apos a execução do comando, você deve encontrar os seguintes arquivos dentro do seu projeto:
 
-**hardhat.config.js**: O arquivo de configuração do hardhat, onde pode ser adicionado plugins e outras configurações.  
-**scripts**: Uma pasta contendo scripts executados pelo hardhat, aqui é onde adicionaremos o nosso script de deploy
-**test**: Uma pasta contendo um exemplo de script de teste
-**contracts**: Pasta onde ficam os nossos contratos
+- **hardhat.config.js**: O arquivo de configuração do hardhat, onde pode ser adicionado plugins e outras configurações.
+- **scripts**: Uma pasta contendo scripts executados pelo hardhat, aqui é onde adicionaremos o nosso script de deploy.
+- **test**: Uma pasta contendo um exemplo de script de teste
+- **contracts**: Pasta onde ficam os nossos contratos
 
 Por conta de uma configuração do metamask, precisamos atualizar o chain ID da nossa aplicação para o 1337. Isso acontece porque o metamask assume que esse é o ID de todas as redes locais.
 Para realizar isso, vamos editar o arquivo `hardhat.config.js` e atualizar o `module.exports` para algo similar a isto:

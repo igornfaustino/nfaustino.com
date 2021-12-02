@@ -1,11 +1,14 @@
 import { FC } from 'react';
 
+import { format, parseISO } from 'date-fns';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import styled from 'styled-components';
 
+import CenteredImage from '../components/CenteredImage';
 import CodeBlock from '../components/CodeBlock';
 import HyperLink from '../components/HipperLink';
 import { Title } from '../components/Title';
@@ -25,13 +28,7 @@ const Wrapper = styled.div`
 	}
 
 	p {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	img {
-		height: 100%;
-		max-width: 100%;
+		width: 100%;
 	}
 
 	table,
@@ -68,6 +65,29 @@ const Wrapper = styled.div`
 	}
 `;
 
+const StyledTitle = styled(Title)`
+	margin-top: 8px;
+	margin-bottom: 8px;
+`;
+
+const Description = styled.p`
+	margin: 0;
+	opacity: 0.6;
+	font-size: 14px;
+	margin-bottom: 32px;
+	text-align: left;
+	width: 100%;
+`;
+
+const DateTime = styled.span`
+	font-size: 14px;
+	margin-top: 16px;
+`;
+
+const StyledHyperLink = styled(HyperLink)`
+	font-size: 14px;
+`;
+
 type Props = {
 	metadata: PostMetadata;
 	content: string;
@@ -75,6 +95,9 @@ type Props = {
 
 const Post: NextPage<Props> = function (props) {
 	const { content, metadata } = props;
+
+	const formattedDate = format(parseISO(metadata.date), 'LLL dd, yyyy');
+
 	return (
 		<BaseLayout>
 			<Head>
@@ -82,6 +105,15 @@ const Post: NextPage<Props> = function (props) {
 				<meta name="description" content={metadata.description} />
 			</Head>
 			<Wrapper>
+				<Link href="/blog" passHref>
+					<StyledHyperLink>← Back</StyledHyperLink>
+				</Link>
+				<DateTime>
+					{formattedDate} · {metadata.readingTime} min read
+				</DateTime>
+				<StyledTitle>{metadata.title}</StyledTitle>
+				<Description>{metadata.description}</Description>
+
 				<ReactMarkdown
 					skipHtml={false}
 					rehypePlugins={[rehypeRaw]}
@@ -89,6 +121,7 @@ const Post: NextPage<Props> = function (props) {
 						code: CodeBlock,
 						h1: Title as FC,
 						a: HyperLink as FC,
+						img: CenteredImage,
 					}}
 				>
 					{content}

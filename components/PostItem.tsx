@@ -45,6 +45,11 @@ const Description = styled.p`
 	font-size: 14px;
 `;
 
+const DateTime = styled.span`
+	font-size: 12px;
+	font-weight: bold;
+`;
+
 type Props = {
 	post: PostMetadata;
 };
@@ -59,7 +64,9 @@ const PostItem = function (props: Props) {
 			<Wrapper>
 				<TitleWrapper>
 					<Title>{post.title}</Title>
-					<span>{formattedDate}</span>
+					<DateTime>
+						{formattedDate} · {post.readingTime} min read
+					</DateTime>
 				</TitleWrapper>
 				<Description>{post.description}</Description>
 			</Wrapper>
