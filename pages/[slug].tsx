@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import styled from 'styled-components';
@@ -73,9 +74,13 @@ type Props = {
 };
 
 const Post: NextPage<Props> = function (props) {
-	const { content } = props;
+	const { content, metadata } = props;
 	return (
 		<BaseLayout>
+			<Head>
+				<title>{metadata.title}</title>
+				<meta name="description" content={metadata.description} />
+			</Head>
 			<Wrapper>
 				<ReactMarkdown
 					skipHtml={false}
