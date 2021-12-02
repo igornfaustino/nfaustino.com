@@ -1,3 +1,4 @@
+import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -18,7 +19,7 @@ const MenuArea = styled.div`
 	align-items: center;
 `;
 
-const MenuItem = styled.a`
+const MenuItem = styled.a<{ active: boolean }>`
 	cursor: pointer;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -28,18 +29,23 @@ const MenuItem = styled.a`
 	user-select: none;
 	color: ${({ theme }) => theme.colors.textColor};
 	text-decoration: none;
+
+	${({ active, theme }) =>
+		active && `border-bottom: 1px solid ${theme.colors.textColor};`}
 `;
 
 const Header = function () {
+	const router = useRouter();
+
 	return (
 		<Wrapper>
 			<Branding />
 			<MenuArea>
 				<Link href="/about" passHref>
-					<MenuItem>About</MenuItem>
+					<MenuItem active={router.pathname === '/about'}>About</MenuItem>
 				</Link>
 				<Link href="/blog" passHref>
-					<MenuItem>Blog</MenuItem>
+					<MenuItem active={router.pathname === '/blog'}>Blog</MenuItem>
 				</Link>
 				<ThemeSwitcher />
 			</MenuArea>
