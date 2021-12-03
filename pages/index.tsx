@@ -58,8 +58,7 @@ const Home: NextPage<Props> = function ({ posts }) {
 				<CenterGroup>
 					<Title>IGOR N FAUSTINO</Title>
 					<TypeWriterText>
-						Hi, I'am Igor and currently I'am working as a Web Developer at
-						aftersale
+						Hi, I'm Igor. I'm currently working as a Web Developer at aftersale
 					</TypeWriterText>
 					<GetStarted whileHover={{ scale: 1.1 }} onClick={query.toggle}>
 						Get started →

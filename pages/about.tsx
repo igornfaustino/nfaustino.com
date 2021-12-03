@@ -44,16 +44,16 @@ const About: NextPage<Props> = function ({ posts }) {
 			<Wrapper>
 				<Title>About Me</Title>
 				<p>
-					Hi, my name is Igor. I've been addicted with the software engineering
-					since 2016, when I first join the university coursing a computer
-					science degree.
+					Hi, my name is Igor. I've been addicted to software engineering since
+					2016 when I first joined the university coursing a computer science
+					degree.
 				</p>
 				<p>
-					I'm currently working as web developer at{' '}
+					I'm currently working as a web developer at{' '}
 					<HyperLink href="https://after.sale" target="_blank" rel="noreferrer">
 						aftersale
 					</HyperLink>{' '}
-					where I help build solutions tha can impact thousands of people.
+					where I help build solutions that can impact thousands of people.
 				</p>
 				<p>
 					I'm living in Brazil and when I'm not working I'll probably be playing

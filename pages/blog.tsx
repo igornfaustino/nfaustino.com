@@ -26,9 +26,9 @@ type Props = {
 };
 
 const Blog: NextPage<Props> = function ({ posts }) {
-	const pageDescription = `Here you will be able to find all post I wrote. You can find posts
-	about development, productivity and everything that is in my mind. The
-	posts are in both portuguese and english. Hope you like :)`;
+	const pageDescription = `Here you will be able to find all posts I wrote. 
+	You can find posts about development, productivity, and everything that's in my mind. 
+	Posts are in both Portuguese and English. Hope you like :)`;
 
 	useSpotlightActions(posts);
 
