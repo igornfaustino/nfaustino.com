@@ -12,6 +12,7 @@ import CenteredImage from '../components/CenteredImage';
 import CodeBlock from '../components/CodeBlock';
 import HyperLink from '../components/HipperLink';
 import { Title } from '../components/Title';
+import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
 import { getAllPostsMetadata, getPostBySlug, PostMetadata } from '../lib/post';
 
@@ -91,10 +92,12 @@ const StyledHyperLink = styled(HyperLink)`
 type Props = {
 	metadata: PostMetadata;
 	content: string;
+	posts: PostMetadata[];
 };
 
 const Post: NextPage<Props> = function (props) {
-	const { content, metadata } = props;
+	const { content, metadata, posts } = props;
+	useSpotlightActions(posts);
 
 	const formattedDate = format(parseISO(metadata.date), 'LLL dd, yyyy');
 
@@ -138,11 +141,13 @@ type StaticPostProps = {
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
 	const { slug } = context.params as StaticPostProps;
 	const { content, metadata } = getPostBySlug(slug);
+	const posts = await getAllPostsMetadata();
 
 	return {
 		props: {
 			content,
 			metadata,
+			posts,
 		},
 	};
 };

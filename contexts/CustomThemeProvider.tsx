@@ -16,11 +16,14 @@ import { darkTheme, lightTheme } from '../styles/theme';
 type Context = {
 	theme: 'light' | 'dark';
 	toggleTheme: () => void;
+	// eslint-disable-next-line no-unused-vars
+	setTheme: (theme: 'light' | 'dark') => void;
 };
 
 export const CustomThemeContext = createContext<Context>({
 	theme: 'light',
 	toggleTheme: () => {},
+	setTheme: () => {},
 });
 
 const CustomThemeProvider: FC = function ({ children }) {
@@ -41,7 +44,7 @@ const CustomThemeProvider: FC = function ({ children }) {
 	}, []);
 
 	const contextValue = useMemo(
-		() => ({ theme, toggleTheme }),
+		() => ({ theme, toggleTheme, setTheme }),
 		[theme, toggleTheme]
 	);
 

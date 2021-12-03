@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import PostItem from '../components/PostItem';
 import { Title } from '../components/Title';
+import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
 import { getAllPostsMetadata, PostMetadata } from '../lib/post';
 
@@ -25,20 +26,22 @@ type Props = {
 };
 
 const Blog: NextPage<Props> = function ({ posts }) {
-	const description = `Here you will be able to find all post I wrote. You can find posts
+	const pageDescription = `Here you will be able to find all post I wrote. You can find posts
 	about development, productivity and everything that is in my mind. The
 	posts are in both portuguese and english. Hope you like :)`;
+
+	useSpotlightActions(posts);
 
 	return (
 		<BaseLayout>
 			<Head>
 				<title>Blog</title>
-				<meta name="description" content={description} />
+				<meta name="description" content={pageDescription} />
 			</Head>
 			<Wrapper>
 				<Title>Personal Blog</Title>
 
-				<p>{description}</p>
+				<p>{pageDescription}</p>
 
 				<hr style={{ width: '100%' }} />
 

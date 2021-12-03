@@ -2,7 +2,9 @@ import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import useMediaQuery from '../hooks/useMediaQuery';
 import Branding from './Branding';
+import SpotlightButton from './SpotlightButton';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const Wrapper = styled.div`
@@ -36,17 +38,23 @@ const MenuItem = styled.a<{ active: boolean }>`
 
 const Header = function () {
 	const router = useRouter();
+	const { isTablet } = useMediaQuery();
 
 	return (
 		<Wrapper>
 			<Branding />
 			<MenuArea>
-				<Link href="/about" passHref>
-					<MenuItem active={router.pathname === '/about'}>About</MenuItem>
-				</Link>
-				<Link href="/blog" passHref>
-					<MenuItem active={router.pathname === '/blog'}>Blog</MenuItem>
-				</Link>
+				{isTablet && (
+					<>
+						<Link href="/about" passHref>
+							<MenuItem active={router.pathname === '/about'}>About</MenuItem>
+						</Link>
+						<Link href="/blog" passHref>
+							<MenuItem active={router.pathname === '/blog'}>Blog</MenuItem>
+						</Link>
+					</>
+				)}
+				<SpotlightButton />
 				<ThemeSwitcher />
 			</MenuArea>
 		</Wrapper>

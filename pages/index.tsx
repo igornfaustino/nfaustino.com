@@ -1,10 +1,14 @@
-import type { NextPage } from 'next';
+import { motion } from 'framer-motion';
+import { useKBar } from 'kbar';
+import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
 
 import { Title } from '../components/Title';
 import TypeWriterText from '../components/TypeWriterText';
+import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
+import { getAllPostsMetadata, PostMetadata } from '../lib/post';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -22,7 +26,23 @@ const CenterGroup = styled.div`
 	width: 100%;
 `;
 
-const Home: NextPage = function () {
+const GetStarted = styled(motion.p)`
+	cursor: pointer;
+	width: fit-content;
+	padding: 8px;
+	border-radius: 3px;
+	transition: all 200ms;
+	text-decoration: underline;
+`;
+
+type Props = {
+	posts: PostMetadata[];
+};
+
+const Home: NextPage<Props> = function ({ posts }) {
+	const { query } = useKBar();
+	useSpotlightActions(posts);
+
 	return (
 		<BaseLayout>
 			<Head>
@@ -41,10 +61,23 @@ const Home: NextPage = function () {
 						Hi, I'am Igor and currently I'am working as a Web Developer at
 						aftersale
 					</TypeWriterText>
+					<GetStarted whileHover={{ scale: 1.1 }} onClick={query.toggle}>
+						Get started →
+					</GetStarted>
 				</CenterGroup>
 			</Wrapper>
 		</BaseLayout>
 	);
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+	const posts = await getAllPostsMetadata();
+
+	return {
+		props: {
+			posts,
+		},
+	};
 };
 
 export default Home;
