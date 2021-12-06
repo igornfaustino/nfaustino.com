@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { format, parseISO } from 'date-fns';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -103,10 +103,8 @@ const Post: NextPage<Props> = function (props) {
 
 	return (
 		<BaseLayout>
-			<Head>
-				<title>{metadata.title}</title>
-				<meta name="description" content={metadata.description} />
-			</Head>
+			<NextSeo title={metadata.title} description={metadata.description} />
+
 			<Wrapper>
 				<Link href="/blog" passHref>
 					<StyledHyperLink>← Back</StyledHyperLink>

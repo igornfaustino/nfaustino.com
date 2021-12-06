@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
 import PostItem from '../components/PostItem';
@@ -34,10 +34,8 @@ const Blog: NextPage<Props> = function ({ posts }) {
 
 	return (
 		<BaseLayout>
-			<Head>
-				<title>Blog</title>
-				<meta name="description" content={pageDescription} />
-			</Head>
+			<NextSeo title="Blog" description={pageDescription} />
+
 			<Wrapper>
 				<Title>Personal Blog</Title>
 

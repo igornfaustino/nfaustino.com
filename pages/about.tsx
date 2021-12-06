@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
 import CareerList from '../components/CareerList';
@@ -32,15 +32,13 @@ const About: NextPage<Props> = function ({ posts }) {
 
 	return (
 		<BaseLayout>
-			<Head>
-				<title>About | Igor Faustino</title>
-				<meta
-					name="description"
-					content="Hi, my name is Igor. I've been addicted with the software engineering
-					since 2016, when I first join the university coursing a computer
-					science degree."
-				/>
-			</Head>
+			<NextSeo
+				title="About"
+				description="Hi, my name is Igor. I've been addicted with the software engineering
+				since 2016, when I first join the university coursing a computer
+				science degree."
+			/>
+
 			<Wrapper>
 				<Title>About Me</Title>
 				<p>

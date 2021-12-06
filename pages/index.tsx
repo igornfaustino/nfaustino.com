@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useKBar } from 'kbar';
 import type { GetStaticProps, NextPage } from 'next';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
 import { Title } from '../components/Title';
@@ -45,14 +45,10 @@ const Home: NextPage<Props> = function ({ posts }) {
 
 	return (
 		<BaseLayout>
-			<Head>
-				<title>Igor Faustino</title>
-				<meta
-					name="description"
-					content="Creating amazing solutions with code"
-				/>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+			<NextSeo
+				title={undefined}
+				description="Creating amazing solutions with code"
+			/>
 
 			<Wrapper>
 				<CenterGroup>
