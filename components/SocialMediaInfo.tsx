@@ -6,9 +6,9 @@ import {
 	FaGithub,
 	FaYoutube,
 } from 'react-icons/fa';
+import { useScreenSize } from 'react-size-hook';
 import styled from 'styled-components';
 
-import useMediaQuery from '../hooks/useMediaQuery';
 import * as gtag from '../lib/gtag';
 
 const Wrapper = styled.div`
@@ -38,7 +38,7 @@ const hoverAnimation = {
 };
 
 const SocialMediaInfo = function () {
-	const { isDesktop } = useMediaQuery();
+	const { isDesktop } = useScreenSize();
 
 	const logClick = (socialMediaName: string) => () => {
 		gtag.event({

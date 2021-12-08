@@ -1,8 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
+import { useScreenSize } from 'react-size-hook';
 import styled from 'styled-components';
 
-import useMediaQuery from '../hooks/useMediaQuery';
 import Branding from './Branding';
 import SpotlightButton from './SpotlightButton';
 import ThemeSwitcher from './ThemeSwitcher';
@@ -38,7 +38,7 @@ const MenuItem = styled.a<{ active: boolean }>`
 
 const Header = function () {
 	const router = useRouter();
-	const { isTablet } = useMediaQuery();
+	const { isTablet } = useScreenSize();
 
 	return (
 		<Wrapper>
