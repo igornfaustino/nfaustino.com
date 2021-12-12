@@ -1,8 +1,10 @@
 import { GetStaticProps, NextPage } from 'next';
 import styled from 'styled-components';
 
+import HyperLink from '../components/HipperLink';
 import ProjectItem from '../components/ProjectItem';
 import { Title } from '../components/Title';
+import { projects } from '../data/projects';
 import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
 import { getAllPostsMetadata, PostMetadata } from '../lib/post';
@@ -16,20 +18,20 @@ const Wrapper = styled.div`
 	margin-bottom: 64px;
 
 	@media (max-width: 700px) {
-		width: 100vw;
+		width: 100%;
 	}
+`;
+
+const List = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	margin-bottom: 16px;
 `;
 
 type Props = {
 	posts: PostMetadata[];
 };
-
-const projects = [
-	{
-		title: 'Teste',
-		description: 'ola [Igor](www.google.com) tudo bem, eu sou um teste',
-	},
-];
 
 const Projects: NextPage<Props> = function ({ posts }) {
 	useSpotlightActions(posts);
@@ -38,9 +40,18 @@ const Projects: NextPage<Props> = function ({ posts }) {
 		<BaseLayout>
 			<Wrapper>
 				<Title>Projects</Title>
-				{projects.map(({ title, description }) => (
-					<ProjectItem title={title} describe={description} key={title} />
-				))}
+				<p>
+					In this page I shared some of my cool projects I worked since 2017.
+					The most of this projects can be found in my{' '}
+					<HyperLink href="https://github.com/igornfaustino">Github</HyperLink>.
+					The projects are listed in a <b>desc</b> order
+				</p>
+				<hr style={{ width: '100%' }} />
+				<List>
+					{projects.map(({ title, description }) => (
+						<ProjectItem title={title} describe={description} key={title} />
+					))}
+				</List>
 			</Wrapper>
 		</BaseLayout>
 	);

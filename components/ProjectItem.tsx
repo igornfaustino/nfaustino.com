@@ -13,7 +13,11 @@ const Title = styled.h3`
 
 const Text = styled.p`
 	margin: 0;
-	color: ${({ theme }) => hexToRgba(theme.colors.textColor, 0.6)};
+	color: ${({ theme }) => hexToRgba(theme.colors.textColor, 0.8)};
+`;
+
+const DescriptionHyperLink = styled(HyperLink)`
+	color: ${({ theme }) => hexToRgba(theme.colors.textColor, 0.8)};
 `;
 
 type Props = {
@@ -25,7 +29,9 @@ const ProjectItem: FC<Props> = function ({ title, describe }) {
 	return (
 		<div>
 			<Title>{title}</Title>
-			<ReactMarkdown components={{ a: HyperLink as FC, p: Text as FC }}>
+			<ReactMarkdown
+				components={{ a: DescriptionHyperLink as FC, p: Text as FC }}
+			>
 				{describe}
 			</ReactMarkdown>
 		</div>
