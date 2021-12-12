@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import SocialMediaInfo from '../components/SocialMediaInfo';
 
-const Wrapper = styled.main`
+const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
