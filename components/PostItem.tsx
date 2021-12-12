@@ -1,4 +1,5 @@
 import { format, parseISO } from 'date-fns';
+import hexToRgba from 'hex-to-rgba';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -35,7 +36,7 @@ const Title = styled.h3`
 
 const Description = styled.p`
 	margin: 0;
-	opacity: 0.6;
+	color: ${({ theme }) => hexToRgba(theme.colors.textColor, 0.6)};
 	text-overflow: ellipsis;
 	overflow: hidden;
 	display: -webkit-box !important;

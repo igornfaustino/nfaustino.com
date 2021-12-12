@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import styled from 'styled-components';
 
+import ProjectItem from '../components/ProjectItem';
 import { Title } from '../components/Title';
 import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
@@ -15,13 +16,20 @@ const Wrapper = styled.div`
 	margin-bottom: 64px;
 
 	@media (max-width: 700px) {
-		width: 100%;
+		width: 100vw;
 	}
 `;
 
 type Props = {
 	posts: PostMetadata[];
 };
+
+const projects = [
+	{
+		title: 'Teste',
+		description: 'ola [Igor](www.google.com) tudo bem, eu sou um teste',
+	},
+];
 
 const Projects: NextPage<Props> = function ({ posts }) {
 	useSpotlightActions(posts);
@@ -30,6 +38,9 @@ const Projects: NextPage<Props> = function ({ posts }) {
 		<BaseLayout>
 			<Wrapper>
 				<Title>Projects</Title>
+				{projects.map(({ title, description }) => (
+					<ProjectItem title={title} describe={description} key={title} />
+				))}
 			</Wrapper>
 		</BaseLayout>
 	);
