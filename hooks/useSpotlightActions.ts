@@ -34,6 +34,14 @@ const useSpotlightActions = (metadatas: PostMetadata[] = []) => {
 			section: 'Pages',
 			perform: () => router.push('/blog'),
 		},
+		{
+			id: 'projects',
+			name: 'Projects',
+			shortcut: ['p'],
+			keywords: 'projects',
+			section: 'Pages',
+			perform: () => router.push('/projects'),
+		},
 	];
 
 	const socialMedia = [
