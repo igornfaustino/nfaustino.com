@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import hexToRgba from 'hex-to-rgba';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import styled from 'styled-components';
 
 import HyperLink from './HipperLink';
@@ -30,6 +31,8 @@ const ProjectItem: FC<Props> = function ({ title, describe }) {
 		<div>
 			<Title>{title}</Title>
 			<ReactMarkdown
+				skipHtml={false}
+				rehypePlugins={[rehypeRaw]}
 				components={{ a: DescriptionHyperLink as FC, p: Text as FC }}
 			>
 				{describe}
