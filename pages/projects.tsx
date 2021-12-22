@@ -43,8 +43,10 @@ const Projects: NextPage<Props> = function ({ posts }) {
 				<p>
 					In this page I shared some of my cool projects I worked since 2017.
 					The most of this projects can be found in my{' '}
-					<HyperLink href="https://github.com/igornfaustino">Github</HyperLink>.
-					The projects are listed in a <b>desc</b> order
+					<HyperLink href="https://github.com/igornfaustino" target="_blank">
+						Github
+					</HyperLink>
+					. The projects are listed in a <b>desc</b> order
 				</p>
 				<hr style={{ width: '100%' }} />
 				<List>
