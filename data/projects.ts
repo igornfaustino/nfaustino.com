@@ -2,22 +2,22 @@ export const projects = [
 	{
 		title: 'React-Size-Hook',
 		description:
-			"React-size-hook is a React hook designed to calculate the screen size. It's helpful to identify what kind o device the page is being rendered and conditionally render something based on that info. React-Size-Hook is available as an [npm package](https://www.npmjs.com/search?q=react-size-hook).",
+			'React-size-hook is a React hook designed to calculate the screen size. It\'s helpful to identify what kind o device the page is being rendered and conditionally render something based on that info. React-Size-Hook is available as an <a href="https://www.npmjs.com/package/react-size-hook" target="_blank">npm package</a>.',
 	},
 	{
 		title: 'Gameshelf',
 		description:
-			'A react project using typescript and GraphQL to track games played by an user. The app is integrated with a public API get the games details.',
+			'A react project using typescript and GraphQL to track games played by an user. The app is integrated with a public API get the games details. Demo is available <a href="https://gameshelf.nfaustino.com/" target="_blank">here</a>',
 	},
 	{
 		title: 'Blockchain vote app',
 		description:
-			'A blockchain vote app built with ethereum blockchain and a React front-end',
+			'A blockchain vote app built with Ethereum blockchain and a React front-end',
 	},
 	{
 		title: 'Interactive Credit Card',
 		description:
-			'A react project with the goal to learn more about Animations and CSS.',
+			'A react project to learn more about Animations and CSS. Demo Available <a href="https://interactive-credit-card-form.herokuapp.com/" target="_blank">here</a>',
 	},
 	{
 		title: 'Igor Crypto Token',
@@ -26,12 +26,12 @@ export const projects = [
 	{
 		title: 'Philosophy Wikipedia Crawler',
 		description:
-			'A python project using beautiful soup 4 to test the "Getting to philosophy" theory on wikipedia',
+			'A python project using beautiful soup 4 to test the "Getting to philosophy" theory on Wikipedia',
 	},
 	{
 		title: 'Voice assistant',
 		description:
-			'A voice assistant written in python with the google TTS API. The assistant was named oracle (from batman), and was able to execute some simple tasks on my computer. This is a project that I want to revisit in the future and expand as much as I can',
+			'A voice assistant wrote in python with the google TTS API. The assistant was named oracle (from batman) and was able to execute some simple tasks on my computer. I want to revisit in the future and expand as much as I can',
 	},
 	{
 		title: 'Apex Stats Tracer',
@@ -96,7 +96,7 @@ export const projects = [
 	{
 		title: 'Pokemon Tamagotchi Web',
 		description:
-			'This project was so fun to create. We create a back-end using ruby and a vanilla js front-end. In this project we ware able to rase pokemon and even battle with then.',
+			'This project was so fun to create. We create a back-end using ruby and a vanilla js front-end. In this game, we were able to raise pokemon and even battle with them.',
 	},
 	{
 		title: 'Guia CM',
