@@ -3,6 +3,7 @@ import { RiSunLine, RiMoonLine } from 'react-icons/ri';
 import styled from 'styled-components';
 
 import useTheme from '../hooks/useTheme';
+import { handleEnterKeyPress } from '../lib/keyup';
 
 const Wrapper = styled(motion.div)`
 	display: flex;
@@ -25,7 +26,7 @@ const ThemeSwitcher = function () {
 				whileTap={tapAnimation}
 				onClick={toggleTheme}
 				role="button"
-				onKeyUp={toggleTheme}
+				onKeyUp={handleEnterKeyPress(toggleTheme)}
 				tabIndex={0}
 			>
 				<RiMoonLine size="1.2rem" />
@@ -37,7 +38,7 @@ const ThemeSwitcher = function () {
 			whileTap={tapAnimation}
 			onClick={toggleTheme}
 			role="button"
-			onKeyUp={toggleTheme}
+			onKeyUp={handleEnterKeyPress(toggleTheme)}
 			tabIndex={0}
 		>
 			<RiSunLine size="1.2rem" />
