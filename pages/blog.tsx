@@ -2,8 +2,8 @@ import type { GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
-import PostItem from '../components/PostItem';
-import { Title } from '../components/Title';
+import { Title } from '../components/atoms/Title';
+import PostItem from '../components/molecules/PostItem';
 import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
 import { getAllPostsMetadata, PostMetadata } from '../lib/post';

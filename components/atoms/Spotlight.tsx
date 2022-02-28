@@ -1,5 +1,4 @@
 /* eslint-disable indent */
-/* eslint-disable no-return-assign */
 import { FC } from 'react';
 
 import {

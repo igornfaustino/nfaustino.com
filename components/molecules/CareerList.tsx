@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { JOBS } from '../data/about';
+import { JOBS } from '../../data/about';
 import CareerItem from './CareerItem';
 
 const Wrapper = styled.div`

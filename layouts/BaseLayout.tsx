@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import styled from 'styled-components';
 
-import Header from '../components/Header';
-import SocialMediaInfo from '../components/SocialMediaInfo';
+import Header from '../components/molecules/Header';
+import SocialMediaInfo from '../components/molecules/SocialMediaInfo';
 
 const Wrapper = styled.div`
 	display: flex;

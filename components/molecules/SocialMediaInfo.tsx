@@ -9,7 +9,7 @@ import {
 import { useScreenSize } from 'react-size-hook';
 import styled from 'styled-components';
 
-import * as gtag from '../lib/gtag';
+import * as gtag from '../../lib/gtag';
 
 const Wrapper = styled.div`
 	display: flex;

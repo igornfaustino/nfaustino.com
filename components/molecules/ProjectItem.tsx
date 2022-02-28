@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import styled from 'styled-components';
 
-import HyperLink from './HipperLink';
+import HyperLink from '../atoms/HipperLink';
 
 const Title = styled.h3`
 	margin: 4px 0;

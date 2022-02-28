@@ -3,7 +3,7 @@ import hexToRgba from 'hex-to-rgba';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { PostMetadata } from '../lib/post';
+import { PostMetadata } from '../../lib/post';
 
 const Wrapper = styled.a`
 	cursor: pointer;

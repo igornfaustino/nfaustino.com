@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 
-import { Title } from '../components/Title';
+import { Title } from '../components/atoms/Title';
 import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
 import { getAllPostsMetadata, PostMetadata } from '../lib/post';

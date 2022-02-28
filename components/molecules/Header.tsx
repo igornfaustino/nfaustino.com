@@ -3,9 +3,10 @@ import Link from 'next/link';
 import { useScreenSize } from 'react-size-hook';
 import styled from 'styled-components';
 
-import Branding from './Branding';
-import SpotlightButton from './SpotlightButton';
-import ThemeSwitcher from './ThemeSwitcher';
+import Branding from '../atoms/Branding';
+import { MenuItem } from '../atoms/MenuItem';
+import SpotlightButton from '../atoms/SpotlightButton';
+import ThemeSwitcher from '../atoms/ThemeSwitcher';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -19,21 +20,6 @@ const MenuArea = styled.div`
 	display: flex;
 	gap: 32px;
 	align-items: center;
-`;
-
-const MenuItem = styled.a<{ active: boolean }>`
-	cursor: pointer;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	color: ${({ theme }) => theme.colors.textColor};
-	text-decoration: none;
-
-	${({ active, theme }) =>
-		active && `border-bottom: 1px solid ${theme.colors.textColor};`}
 `;
 
 const Header = function () {

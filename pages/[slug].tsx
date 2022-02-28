@@ -8,10 +8,10 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import styled from 'styled-components';
 
-import CenteredImage from '../components/CenteredImage';
-import CodeBlock from '../components/CodeBlock';
-import HyperLink from '../components/HipperLink';
-import { Title } from '../components/Title';
+import CodeBlock from '../components/atoms/CodeBlock';
+import HyperLink from '../components/atoms/HipperLink';
+import { Title } from '../components/atoms/Title';
+import CenteredImage from '../components/molecules/CenteredImage';
 import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
 import { getAllPostsMetadata, getPostBySlug, PostMetadata } from '../lib/post';

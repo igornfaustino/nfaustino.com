@@ -1,9 +1,9 @@
 import { GetStaticProps, NextPage } from 'next';
 import styled from 'styled-components';
 
-import HyperLink from '../components/HipperLink';
-import ProjectItem from '../components/ProjectItem';
-import { Title } from '../components/Title';
+import HyperLink from '../components/atoms/HipperLink';
+import { Title } from '../components/atoms/Title';
+import ProjectItem from '../components/molecules/ProjectItem';
 import { projects } from '../data/projects';
 import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';

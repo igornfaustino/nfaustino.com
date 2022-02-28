@@ -1,8 +1,8 @@
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 
-import Analytics from '../components/Analytics';
-import Spotlight from '../components/Spotlight';
+import Analytics from '../components/atoms/Analytics';
+import Spotlight from '../components/atoms/Spotlight';
 import CustomThemeProvider from '../contexts/CustomThemeProvider';
 import { GlobalStyle } from '../styles/global';
 

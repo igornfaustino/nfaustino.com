@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { EDUCATION } from '../data/about';
-import EducationItem from './EductaionItem';
+import { EDUCATION } from '../../data/about';
+import EducationItem from './EducationItem';
 
 const Wrapper = styled.div`
 	display: flex;

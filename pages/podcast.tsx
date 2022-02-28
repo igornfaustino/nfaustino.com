@@ -1,8 +1,8 @@
 import { parse } from 'rss-to-json';
 import styled from 'styled-components';
 
-import PodcastItem from '../components/PodcastItem';
-import { Title } from '../components/Title';
+import { Title } from '../components/atoms/Title';
+import PodcastItem from '../components/molecules/PodcastItem';
 import BaseLayout from '../layouts/BaseLayout';
 
 const HOUR = 60 * 60;
