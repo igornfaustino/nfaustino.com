@@ -1,18 +1,10 @@
-import styled from 'styled-components';
-
 import { JOBS } from '../../data/about';
+import { List } from '../atoms/list/List';
 import CareerItem from './CareerItem';
-
-const Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
-	margin-bottom: 16px;
-`;
 
 const CareerList = function () {
 	return (
-		<Wrapper>
+		<List>
 			{JOBS.map((job) => (
 				<CareerItem
 					key={`${job.company}-${job.position}`}
@@ -24,7 +16,7 @@ const CareerList = function () {
 					end={job.end}
 				/>
 			))}
-		</Wrapper>
+		</List>
 	);
 };
 

@@ -1,18 +1,10 @@
-import styled from 'styled-components';
-
 import { EDUCATION } from '../../data/about';
+import { List } from '../atoms/list/List';
 import EducationItem from './EducationItem';
-
-const Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
-	margin-bottom: 16px;
-`;
 
 const EducationList = function () {
 	return (
-		<Wrapper>
+		<List>
 			{EDUCATION.map((education) => (
 				<EducationItem
 					key={`${education.school}-${education.course}`}
@@ -23,7 +15,7 @@ const EducationList = function () {
 					endYear={education.endYear}
 				/>
 			))}
-		</Wrapper>
+		</List>
 	);
 };
 

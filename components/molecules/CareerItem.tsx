@@ -2,11 +2,9 @@ import { format, parseISO, intervalToDuration, formatDuration } from 'date-fns';
 import styled from 'styled-components';
 
 import HyperLink from '../atoms/HipperLink';
-
-const Title = styled.h3`
-	margin: 4px 0;
-	font-size: 16px;
-`;
+import { ItemDescription } from '../atoms/list/ItemDescription';
+import { ItemTitle } from '../atoms/list/ItemTitle';
+import { ListItem } from '../atoms/list/ListItem';
 
 const Position = styled.span`
 	text-transform: uppercase;
@@ -41,17 +39,19 @@ const CareerItem = function (props: Props) {
 	});
 
 	return (
-		<div>
-			<Title>
+		<ListItem>
+			<ItemTitle>
 				<Position>{position}</Position> at{' '}
 				<HyperLink href={link} target="_blank" rel="noreferrer">
 					{company}
 				</HyperLink>{' '}
-			</Title>
-			{location}
-			<br />
-			{formattedStart} - {formattedEnd} . {formattedDuration}
-		</div>
+			</ItemTitle>
+			<ItemDescription>
+				{location}
+				<br />
+				{formattedStart} - {formattedEnd} . {formattedDuration}
+			</ItemDescription>
+		</ListItem>
 	);
 };
 

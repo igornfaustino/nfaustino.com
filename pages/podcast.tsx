@@ -1,6 +1,7 @@
 import { parse } from 'rss-to-json';
 import styled from 'styled-components';
 
+import { List } from '../components/atoms/list/List';
 import { Title } from '../components/atoms/Title';
 import PodcastItem from '../components/molecules/PodcastItem';
 import BaseLayout from '../layouts/BaseLayout';
@@ -40,14 +41,16 @@ const Podcast = function ({ episodes }: Props) {
 					Portuguese )
 				</p>
 				<hr style={{ width: '100%' }} />
-				{episodes.map(({ title, description, link }) => (
-					<PodcastItem
-						key={link}
-						title={title}
-						description={description}
-						link={link}
-					/>
-				))}
+				<List>
+					{episodes.map(({ title, description, link }) => (
+						<PodcastItem
+							key={link}
+							title={title}
+							description={description}
+							link={link}
+						/>
+					))}
+				</List>
 			</Wrapper>
 		</BaseLayout>
 	);

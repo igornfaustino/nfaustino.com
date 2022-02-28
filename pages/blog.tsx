@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
+import { List } from '../components/atoms/list/List';
 import { Title } from '../components/atoms/Title';
 import PostItem from '../components/molecules/PostItem';
 import useSpotlightActions from '../hooks/useSpotlightActions';
@@ -43,9 +44,11 @@ const Blog: NextPage<Props> = function ({ posts }) {
 
 				<hr style={{ width: '100%' }} />
 
-				{posts.map((post) => (
-					<PostItem key={post.slug} post={post} />
-				))}
+				<List>
+					{posts.map((post) => (
+						<PostItem key={post.slug} post={post} />
+					))}
+				</List>
 			</Wrapper>
 		</BaseLayout>
 	);

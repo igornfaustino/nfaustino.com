@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-const Title = styled.h3`
-	margin: 4px 0;
-	font-size: 16px;
-`;
+import { ItemDescription } from '../atoms/list/ItemDescription';
+import { ItemTitle } from '../atoms/list/ItemTitle';
+import { ListItem } from '../atoms/list/ListItem';
 
 const Position = styled.span`
 	text-transform: uppercase;
@@ -22,14 +21,16 @@ const EducationItem = function (props: Props) {
 	const { course, school, location, startYear, endYear } = props;
 
 	return (
-		<div>
-			<Title>
+		<ListItem>
+			<ItemTitle>
 				<Position>{course}</Position> at {school}
-			</Title>
-			{location}
-			<br />
-			{startYear} - {endYear || 'Present'}
-		</div>
+			</ItemTitle>
+			<ItemDescription>
+				{location}
+				<br />
+				{startYear} - {endYear || 'Present'}
+			</ItemDescription>
+		</ListItem>
 	);
 };
 

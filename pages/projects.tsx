@@ -2,6 +2,7 @@ import { GetStaticProps, NextPage } from 'next';
 import styled from 'styled-components';
 
 import HyperLink from '../components/atoms/HipperLink';
+import { List } from '../components/atoms/list/List';
 import { Title } from '../components/atoms/Title';
 import ProjectItem from '../components/molecules/ProjectItem';
 import { projects } from '../data/projects';
@@ -20,13 +21,6 @@ const Wrapper = styled.div`
 	@media (max-width: 700px) {
 		width: 100%;
 	}
-`;
-
-const List = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
-	margin-bottom: 16px;
 `;
 
 type Props = {

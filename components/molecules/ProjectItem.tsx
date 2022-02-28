@@ -6,16 +6,9 @@ import rehypeRaw from 'rehype-raw';
 import styled from 'styled-components';
 
 import HyperLink from '../atoms/HipperLink';
-
-const Title = styled.h3`
-	margin: 4px 0;
-	font-size: 16px;
-`;
-
-const Text = styled.p`
-	margin: 0;
-	color: ${({ theme }) => hexToRgba(theme.colors.textColor, 0.8)};
-`;
+import { ItemDescription } from '../atoms/list/ItemDescription';
+import { ItemTitle } from '../atoms/list/ItemTitle';
+import { ListItem } from '../atoms/list/ListItem';
 
 const DescriptionHyperLink = styled(HyperLink)`
 	color: ${({ theme }) => hexToRgba(theme.colors.textColor, 0.8)};
@@ -28,16 +21,16 @@ type Props = {
 
 const ProjectItem: FC<Props> = function ({ title, describe }) {
 	return (
-		<div>
-			<Title>{title}</Title>
+		<ListItem>
+			<ItemTitle>{title}</ItemTitle>
 			<ReactMarkdown
 				skipHtml={false}
 				rehypePlugins={[rehypeRaw]}
-				components={{ a: DescriptionHyperLink as FC, p: Text as FC }}
+				components={{ a: DescriptionHyperLink as FC, p: ItemDescription as FC }}
 			>
 				{describe}
 			</ReactMarkdown>
-		</div>
+		</ListItem>
 	);
 };
 
