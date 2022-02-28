@@ -1,27 +1,16 @@
 import { format, parseISO } from 'date-fns';
-import hexToRgba from 'hex-to-rgba';
 import Link from 'next/link';
 import styled from 'styled-components';
 
 import { PostMetadata } from '../../lib/post';
-
-const Wrapper = styled.a`
-	cursor: pointer;
-	padding: 8px;
-	border-radius: 3px;
-	text-decoration: none;
-	color: ${({ theme }) => theme.colors.textColor};
-	transition: all 200ms;
-
-	:hover {
-		background-color: rgba(0, 0, 0, 0.2);
-	}
-`;
+import { ItemDescription } from '../atoms/list/ItemDescription';
+import { ItemTitle } from '../atoms/list/ItemTitle';
+import { LinkListItem } from '../atoms/list/LinkListItem';
 
 const TitleWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-start;
 
 	@media (max-width: 576px) {
 		flex-direction: column;
@@ -30,25 +19,10 @@ const TitleWrapper = styled.div`
 	}
 `;
 
-const Title = styled.h3`
-	margin: 0;
-`;
-
-const Description = styled.p`
-	margin: 0;
-	color: ${({ theme }) => hexToRgba(theme.colors.textColor, 0.6)};
-	text-overflow: ellipsis;
-	overflow: hidden;
-	display: -webkit-box !important;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-	white-space: normal;
-	font-size: 14px;
-`;
-
 const DateTime = styled.span`
 	font-size: 12px;
 	font-weight: bold;
+	white-space: nowrap;
 `;
 
 type Props = {
@@ -62,15 +36,15 @@ const PostItem = function (props: Props) {
 
 	return (
 		<Link href={`/${post.slug}`} passHref>
-			<Wrapper>
+			<LinkListItem>
 				<TitleWrapper>
-					<Title>{post.title}</Title>
+					<ItemTitle>{post.title}</ItemTitle>
 					<DateTime>
 						{formattedDate} · {post.readingTime} min read
 					</DateTime>
 				</TitleWrapper>
-				<Description>{post.description}</Description>
-			</Wrapper>
+				<ItemDescription>{post.description}</ItemDescription>
+			</LinkListItem>
 		</Link>
 	);
 };
