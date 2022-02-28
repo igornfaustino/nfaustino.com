@@ -57,6 +57,11 @@ const Header = function () {
 								Projects
 							</MenuItem>
 						</Link>
+						<Link href="/podcast" passHref>
+							<MenuItem active={router.pathname === '/podcast'}>
+								Podcast
+							</MenuItem>
+						</Link>
 					</>
 				)}
 				<SpotlightButton />
