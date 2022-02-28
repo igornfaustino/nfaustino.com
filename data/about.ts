@@ -1,7 +1,7 @@
 export const JOBS = [
 	{
 		position: 'Front-end Developer',
-		company: 'aftersale',
+		company: 'Aftersale',
 		link: 'https://after.sale',
 		location: 'Curitiba, Brazil',
 		start: '2020-09-01',

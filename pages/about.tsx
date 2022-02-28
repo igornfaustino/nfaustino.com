@@ -49,7 +49,7 @@ const About: NextPage<Props> = function ({ posts }) {
 				<p>
 					I'm currently working as a web developer at{' '}
 					<HyperLink href="https://after.sale" target="_blank" rel="noreferrer">
-						aftersale
+						Aftersale
 					</HyperLink>{' '}
 					where I help build solutions that can impact thousands of people.
 				</p>
