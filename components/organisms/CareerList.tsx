@@ -1,6 +1,6 @@
 import { JOBS } from '../../data/about';
 import { List } from '../atoms/list/List';
-import CareerItem from './CareerItem';
+import CareerItem from '../molecules/CareerItem';
 
 const CareerList = function () {
 	return (

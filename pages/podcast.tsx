@@ -1,9 +1,8 @@
 import { parse } from 'rss-to-json';
 import styled from 'styled-components';
 
-import { List } from '../components/atoms/list/List';
 import { Title } from '../components/atoms/Title';
-import PodcastItem from '../components/molecules/PodcastItem';
+import { PodcastList } from '../components/organisms/PodcastList';
 import BaseLayout from '../layouts/BaseLayout';
 
 const HOUR = 60 * 60;
@@ -41,16 +40,8 @@ const Podcast = function ({ episodes }: Props) {
 					Portuguese )
 				</p>
 				<hr style={{ width: '100%' }} />
-				<List>
-					{episodes.map(({ title, description, link }) => (
-						<PodcastItem
-							key={link}
-							title={title}
-							description={description}
-							link={link}
-						/>
-					))}
-				</List>
+
+				<PodcastList episodes={episodes} />
 			</Wrapper>
 		</BaseLayout>
 	);

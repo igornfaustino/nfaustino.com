@@ -1,6 +1,6 @@
 import { EDUCATION } from '../../data/about';
 import { List } from '../atoms/list/List';
-import EducationItem from './EducationItem';
+import EducationItem from '../molecules/EducationItem';
 
 const EducationList = function () {
 	return (

@@ -2,10 +2,8 @@ import { GetStaticProps, NextPage } from 'next';
 import styled from 'styled-components';
 
 import HyperLink from '../components/atoms/HipperLink';
-import { List } from '../components/atoms/list/List';
 import { Title } from '../components/atoms/Title';
-import ProjectItem from '../components/molecules/ProjectItem';
-import { projects } from '../data/projects';
+import { ProjectList } from '../components/organisms/ProjectList';
 import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
 import { getAllPostsMetadata, PostMetadata } from '../lib/post';
@@ -43,11 +41,8 @@ const Projects: NextPage<Props> = function ({ posts }) {
 					. The projects are listed in a <b>desc</b> order
 				</p>
 				<hr style={{ width: '100%' }} />
-				<List>
-					{projects.map(({ title, description }) => (
-						<ProjectItem title={title} describe={description} key={title} />
-					))}
-				</List>
+
+				<ProjectList />
 			</Wrapper>
 		</BaseLayout>
 	);

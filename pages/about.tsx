@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import HyperLink from '../components/atoms/HipperLink';
 import { Title } from '../components/atoms/Title';
-import CareerList from '../components/molecules/CareerList';
-import EducationList from '../components/molecules/EducationList';
+import CareerList from '../components/organisms/CareerList';
+import EducationList from '../components/organisms/EducationList';
 import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
 import { getAllPostsMetadata, PostMetadata } from '../lib/post';
