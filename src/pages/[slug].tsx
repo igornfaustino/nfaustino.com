@@ -145,6 +145,8 @@ type StaticPostProps = {
   slug: string;
 };
 
+const MINUTE = 60;
+
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as StaticPostProps;
   await client.query(GetPostBySlugDocument, { slug }).toPromise();
@@ -154,6 +156,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       slug,
       urqlState: ssrCache.extractData(),
     },
+    revalidate: 30 * MINUTE,
   };
 };
 

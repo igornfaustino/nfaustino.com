@@ -59,6 +59,8 @@ const Blog: NextPage = function () {
   );
 };
 
+const MINUTE = 60;
+
 export const getStaticProps: GetStaticProps = async () => {
   await client.query(AllPostsDocument).toPromise();
 
@@ -66,6 +68,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       urqlState: ssrCache.extractData(),
     },
+    revalidate: 5 * MINUTE,
   };
 };
 
