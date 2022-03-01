@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
 import { Title } from "../src/components/atoms/Title";
-import BaseLayout from "../layouts/BaseLayout";
+import BaseLayout from "../src/layouts/BaseLayout";
 
 const NotFound: NextPage = function () {
   return (

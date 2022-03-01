@@ -12,7 +12,7 @@ import CodeBlock from "../src/components/atoms/CodeBlock";
 import HyperLink from "../src/components/atoms/HipperLink";
 import { Title } from "../src/components/atoms/Title";
 import CenteredImage from "../src/components/molecules/CenteredImage";
-import BaseLayout from "../layouts/BaseLayout";
+import BaseLayout from "../src/layouts/BaseLayout";
 import { getPostReadingTime } from "../src/lib/post";
 import { client, ssrCache } from "../src/lib/urql";
 import {

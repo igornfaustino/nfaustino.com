@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Title } from "../src/components/atoms/Title";
 import { PodcastList } from "../src/components/organisms/PodcastList";
-import BaseLayout from "../layouts/BaseLayout";
+import BaseLayout from "../src/layouts/BaseLayout";
 
 const HOUR = 60 * 60;
 

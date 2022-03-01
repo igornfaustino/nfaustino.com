@@ -4,7 +4,7 @@ import styled from "styled-components";
 import HyperLink from "../src/components/atoms/HipperLink";
 import { Title } from "../src/components/atoms/Title";
 import { ProjectList } from "../src/components/organisms/ProjectList";
-import BaseLayout from "../layouts/BaseLayout";
+import BaseLayout from "../src/layouts/BaseLayout";
 
 const Wrapper = styled.div`
   display: flex;

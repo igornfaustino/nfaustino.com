@@ -2,9 +2,9 @@ import { FC } from "react";
 
 import styled from "styled-components";
 
-import Header from "../src/components/molecules/Header";
-import SocialMediaInfo from "../src/components/molecules/SocialMediaInfo";
-import useSpotlightActions from "../src/hooks/useSpotlightActions";
+import Header from "../components/molecules/Header";
+import SocialMediaInfo from "../components/molecules/SocialMediaInfo";
+import useSpotlightActions from "../hooks/useSpotlightActions";
 
 const Wrapper = styled.div`
   display: flex;

@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 import { Title } from "../src/components/atoms/Title";
 import TypeWriterText from "../src/components/atoms/TypeWriterText";
-import BaseLayout from "../layouts/BaseLayout";
+import BaseLayout from "../src/layouts/BaseLayout";
 
 const Wrapper = styled.div`
   display: flex;

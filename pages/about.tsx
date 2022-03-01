@@ -6,7 +6,7 @@ import HyperLink from "../src/components/atoms/HipperLink";
 import { Title } from "../src/components/atoms/Title";
 import CareerList from "../src/components/organisms/CareerList";
 import EducationList from "../src/components/organisms/EducationList";
-import BaseLayout from "../layouts/BaseLayout";
+import BaseLayout from "../src/layouts/BaseLayout";
 
 const Wrapper = styled.div`
   display: flex;
