@@ -1,8 +1,8 @@
 import { format, parseISO } from "date-fns";
 import Link from "next/link";
 import styled from "styled-components";
+import { AllPostsQuery } from "../../generated/graphql";
 
-import { PostMetadata } from "../../lib/post";
 import { ItemDescription } from "../atoms/list/ItemDescription";
 import { ItemTitle } from "../atoms/list/ItemTitle";
 import { LinkListItem } from "../atoms/list/LinkListItem";
@@ -25,8 +25,10 @@ const DateTime = styled.span`
   white-space: nowrap;
 `;
 
+type Post = AllPostsQuery["posts"][0] & { readingTime: number };
+
 type Props = {
-  post: PostMetadata;
+  post: Post;
 };
 
 const PostItem = function (props: Props) {

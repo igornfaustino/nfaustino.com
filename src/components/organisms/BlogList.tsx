@@ -1,8 +1,10 @@
-import { PostMetadata } from "../../lib/post";
+import { AllPostsQuery } from "../../generated/graphql";
 import { List } from "../atoms/list/List";
 import PostItem from "../molecules/PostItem";
 
-export const BlogList = function ({ posts }: { posts: PostMetadata[] }) {
+type Post = AllPostsQuery["posts"][0] & { readingTime: number };
+
+export const BlogList = function ({ posts }: { posts: Post[] }) {
   return (
     <List>
       {posts.map((post) => (
