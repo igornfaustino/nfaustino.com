@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Header from '../components/molecules/Header';
 import SocialMediaInfo from '../components/molecules/SocialMediaInfo';
+import useSpotlightActions from '../hooks/useSpotlightActions';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -29,6 +30,8 @@ const Footer = styled.footer`
 `;
 
 const BaseLayout: FC = function ({ children }) {
+	useSpotlightActions();
+
 	return (
 		<Wrapper>
 			<Nav>

@@ -1,0 +1,42 @@
+export const generatePagesActions = (redirect: (path: string) => () => void) => [
+  {
+    id: 'home',
+    name: 'Home',
+    shortcut: ['h'],
+    keywords: 'igor faustino',
+    section: 'Pages',
+    perform: redirect('/'),
+  },
+  {
+    id: 'about',
+    name: 'About Me',
+    shortcut: ['a'],
+    keywords: 'about information',
+    section: 'Pages',
+    perform: redirect('/about'),
+  },
+  {
+    id: 'blog',
+    name: 'Blog',
+    shortcut: ['b'],
+    keywords: 'writing words',
+    section: 'Pages',
+    perform: redirect('/blog'),
+  },
+  {
+    id: 'projects',
+    name: 'Projects',
+    shortcut: ['p'],
+    keywords: 'projects',
+    section: 'Pages',
+    perform: redirect('/projects'),
+  },
+  {
+    id: 'podcast',
+    name: 'Podcast',
+    shortcut: ['pc'],
+    keywords: 'podcast',
+    section: 'Pages',
+    perform: redirect('/podcast'),
+  },
+]
