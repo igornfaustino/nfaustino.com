@@ -4,7 +4,7 @@ import { Provider } from "urql";
 
 import Analytics from "../src/components/atoms/Analytics";
 import Spotlight from "../src/components/atoms/Spotlight";
-import CustomThemeProvider from "../contexts/CustomThemeProvider";
+import CustomThemeProvider from "../src/contexts/CustomThemeProvider";
 import { client, ssrCache } from "../lib/urql";
 import { GlobalStyle } from "../styles/global";
 
