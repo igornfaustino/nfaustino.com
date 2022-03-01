@@ -1,10 +1,13 @@
 import { GetServerSideProps } from 'next';
 
-import { getAllPostsMetadata, PostMetadata } from '../lib/post';
+import { client } from '../lib/urql';
+import { AllPostsDocument, AllPostsQuery } from '../src/generated/graphql';
 
 const EXTERNAL_DATA_URL = 'https://nfaustino.com';
 
-const generatePostsMap = (posts: PostMetadata[]) =>
+type PostSlug = { slug: string };
+
+const generatePostsMap = (posts: PostSlug[]) =>
 	posts
 		.map(
 			({ slug }) => `
@@ -15,7 +18,7 @@ const generatePostsMap = (posts: PostMetadata[]) =>
 		)
 		.join('');
 
-function generateSiteMap(posts: PostMetadata[]) {
+function generateSiteMap(posts: PostSlug[]) {
 	return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
@@ -43,7 +46,10 @@ function SiteMap() {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-	const posts = getAllPostsMetadata();
+	const { data } = await client
+		.query<AllPostsQuery>(AllPostsDocument)
+		.toPromise();
+	const posts = data?.posts || [];
 
 	// We generate the XML sitemap with the posts data
 	const sitemap = generateSiteMap(posts);

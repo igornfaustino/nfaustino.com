@@ -7,3 +7,13 @@ query AllPosts {
 		content
 	}
 }
+
+query getPostBySlug($slug: String) {
+	post(where: { slug: $slug }) {
+		content
+		date
+		description
+		title
+		slug
+	}
+}

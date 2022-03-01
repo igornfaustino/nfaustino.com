@@ -12,9 +12,16 @@ import CodeBlock from '../components/atoms/CodeBlock';
 import HyperLink from '../components/atoms/HipperLink';
 import { Title } from '../components/atoms/Title';
 import CenteredImage from '../components/molecules/CenteredImage';
-import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
-import { getAllPostsMetadata, getPostBySlug, PostMetadata } from '../lib/post';
+import { getPostReadingTime } from '../lib/post';
+import { client, ssrCache } from '../lib/urql';
+import {
+	AllPostsDocument,
+	AllPostsQuery,
+	GetPostBySlugDocument,
+	useGetPostBySlugQuery,
+} from '../src/generated/graphql';
+import NotFound from './404';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -89,15 +96,17 @@ const StyledHyperLink = styled(HyperLink)`
 	font-size: 14px;
 `;
 
-type Props = {
-	metadata: PostMetadata;
-	content: string;
-	posts: PostMetadata[];
-};
+const Post: NextPage<{ slug: string }> = function ({ slug }) {
+	const [{ data }] = useGetPostBySlugQuery({
+		variables: {
+			slug,
+		},
+	});
 
-const Post: NextPage<Props> = function (props) {
-	const { content, metadata, posts } = props;
-	useSpotlightActions(posts);
+	if (!data?.post) return <NotFound />;
+
+	const { content, ...metadata } = data.post;
+	const readingTime = getPostReadingTime(content);
 
 	const formattedDate = format(parseISO(metadata.date), 'LLL dd, yyyy');
 
@@ -110,7 +119,7 @@ const Post: NextPage<Props> = function (props) {
 					<StyledHyperLink>← Back</StyledHyperLink>
 				</Link>
 				<DateTime>
-					{formattedDate} · {metadata.readingTime} min read
+					{formattedDate} · {readingTime} min read
 				</DateTime>
 				<StyledTitle>{metadata.title}</StyledTitle>
 				<Description>{metadata.description}</Description>
@@ -136,28 +145,30 @@ type StaticPostProps = {
 	slug: string;
 };
 
-export const getStaticProps: GetStaticProps<Props> = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
 	const { slug } = context.params as StaticPostProps;
-	const { content, metadata } = getPostBySlug(slug);
-	const posts = await getAllPostsMetadata();
+	await client.query(GetPostBySlugDocument, { slug }).toPromise();
 
 	return {
 		props: {
-			content,
-			metadata,
-			posts,
+			slug,
+			urqlState: ssrCache.extractData(),
 		},
 	};
 };
 
 export const getStaticPaths: GetStaticPaths<StaticPostProps> = async () => {
-	const paths = getAllPostsMetadata().map((post) => ({
-		params: { slug: post.slug },
-	}));
+	const { data } = await client
+		.query<AllPostsQuery>(AllPostsDocument)
+		.toPromise();
+	const paths =
+		data?.posts.map((post) => ({
+			params: { slug: post.slug },
+		})) || [];
 
 	return {
 		paths,
-		fallback: false,
+		fallback: 'blocking',
 	};
 };
 

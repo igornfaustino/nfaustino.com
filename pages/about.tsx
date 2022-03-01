@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
@@ -6,9 +6,7 @@ import HyperLink from '../components/atoms/HipperLink';
 import { Title } from '../components/atoms/Title';
 import CareerList from '../components/organisms/CareerList';
 import EducationList from '../components/organisms/EducationList';
-import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
-import { getAllPostsMetadata, PostMetadata } from '../lib/post';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -23,13 +21,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-type Props = {
-	posts: PostMetadata[];
-};
-
-const About: NextPage<Props> = function ({ posts }) {
-	useSpotlightActions(posts);
-
+const About: NextPage = function () {
 	return (
 		<BaseLayout>
 			<NextSeo
@@ -72,16 +64,6 @@ const About: NextPage<Props> = function ({ posts }) {
 			</Wrapper>
 		</BaseLayout>
 	);
-};
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	const posts = await getAllPostsMetadata();
-
-	return {
-		props: {
-			posts,
-		},
-	};
 };
 
 export default About;

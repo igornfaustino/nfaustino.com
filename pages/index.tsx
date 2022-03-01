@@ -1,14 +1,12 @@
 import { motion } from 'framer-motion';
 import { useKBar } from 'kbar';
-import type { GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
 import { Title } from '../components/atoms/Title';
 import TypeWriterText from '../components/atoms/TypeWriterText';
-import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
-import { getAllPostsMetadata, PostMetadata } from '../lib/post';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -35,13 +33,8 @@ const GetStarted = styled(motion.p)`
 	text-decoration: underline;
 `;
 
-type Props = {
-	posts: PostMetadata[];
-};
-
-const Home: NextPage<Props> = function ({ posts }) {
+const Home: NextPage = function () {
 	const { query } = useKBar();
-	useSpotlightActions(posts);
 
 	return (
 		<BaseLayout>
@@ -63,16 +56,6 @@ const Home: NextPage<Props> = function ({ posts }) {
 			</Wrapper>
 		</BaseLayout>
 	);
-};
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	const posts = await getAllPostsMetadata();
-
-	return {
-		props: {
-			posts,
-		},
-	};
 };
 
 export default Home;

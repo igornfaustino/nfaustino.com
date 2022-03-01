@@ -1,12 +1,10 @@
-import { GetStaticProps, NextPage } from 'next';
+import { NextPage } from 'next';
 import styled from 'styled-components';
 
 import HyperLink from '../components/atoms/HipperLink';
 import { Title } from '../components/atoms/Title';
 import { ProjectList } from '../components/organisms/ProjectList';
-import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
-import { getAllPostsMetadata, PostMetadata } from '../lib/post';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -21,13 +19,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-type Props = {
-	posts: PostMetadata[];
-};
-
-const Projects: NextPage<Props> = function ({ posts }) {
-	useSpotlightActions(posts);
-
+const Projects: NextPage = function () {
 	return (
 		<BaseLayout>
 			<Wrapper>
@@ -46,16 +38,6 @@ const Projects: NextPage<Props> = function ({ posts }) {
 			</Wrapper>
 		</BaseLayout>
 	);
-};
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	const posts = await getAllPostsMetadata();
-
-	return {
-		props: {
-			posts,
-		},
-	};
 };
 
 export default Projects;

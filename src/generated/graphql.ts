@@ -3508,6 +3508,13 @@ export type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', slug: string, title: string, description: string, date: any, content: string }> };
 
+export type GetPostBySlugQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetPostBySlugQuery = { __typename?: 'Query', post?: { __typename?: 'Post', content: string, date: any, description: string, title: string, slug: string } | null };
+
 
 export const AllPostsDocument = gql`
     query AllPosts {
@@ -3523,4 +3530,19 @@ export const AllPostsDocument = gql`
 
 export function useAllPostsQuery(options?: Omit<Urql.UseQueryArgs<AllPostsQueryVariables>, 'query'>) {
   return Urql.useQuery<AllPostsQuery>({ query: AllPostsDocument, ...options });
+};
+export const GetPostBySlugDocument = gql`
+    query getPostBySlug($slug: String) {
+  post(where: {slug: $slug}) {
+    content
+    date
+    description
+    title
+    slug
+  }
+}
+    `;
+
+export function useGetPostBySlugQuery(options?: Omit<Urql.UseQueryArgs<GetPostBySlugQueryVariables>, 'query'>) {
+  return Urql.useQuery<GetPostBySlugQuery>({ query: GetPostBySlugDocument, ...options });
 };
