@@ -10,12 +10,14 @@ import { LinkListItem } from "../atoms/list/LinkListItem";
 const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: baseline;
+  gap: 16px;
 
   @media (max-width: 576px) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: 0px;
   }
 `;
 
