@@ -5,11 +5,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "date-fns": "^2.27.0",
     "framer-motion": "^5.3.3",
+    "graphql": "^16.3.0",
     "gray-matter": "^4.0.3",
     "hex-to-rgba": "^2.0.1",
     "kbar": "^0.1.0-beta.23",
@@ -23,9 +25,17 @@
     "react-syntax-highlighter": "^15.4.5",
     "rehype-raw": "^6.1.0",
     "rss-to-json": "^2.0.2",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "urql": "^2.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/typescript": "2.4.5",
+    "@graphql-codegen/typescript-operations": "2.3.2",
+    "@graphql-codegen/typescript-resolvers": "2.5.2",
+    "@graphql-codegen/typescript-urql": "^3.5.3",
+    "@graphql-codegen/urql-introspection": "2.1.1",
     "@types/gtag.js": "^0.0.8",
     "@types/node": "16.11.10",
     "@types/react": "17.0.37",

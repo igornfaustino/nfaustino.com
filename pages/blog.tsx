@@ -6,7 +6,8 @@ import { Title } from '../components/atoms/Title';
 import { BlogList } from '../components/organisms/BlogList';
 import useSpotlightActions from '../hooks/useSpotlightActions';
 import BaseLayout from '../layouts/BaseLayout';
-import { getAllPostsMetadata, PostMetadata } from '../lib/post';
+import { client, ssrCache } from '../lib/urql';
+import { AllPostsDocument, useAllPostsQuery } from '../src/generated/graphql';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -21,14 +22,26 @@ const Wrapper = styled.div`
 	}
 `;
 
-type Props = {
-	posts: PostMetadata[];
+export const getPostReadingTime = (content: string) => {
+	const wpm = 225;
+	const words = content.trim().split(/\s+/).length;
+	const time = Math.ceil(words / wpm);
+
+	return time;
 };
 
-const Blog: NextPage<Props> = function ({ posts }) {
+const Blog: NextPage = function () {
 	const pageDescription = `Here you will be able to find all posts I wrote. 
 	You can find posts about development, productivity, and everything that's in my mind. 
 	Posts are in both Portuguese and English. Hope you like :)`;
+
+	const [{ data }] = useAllPostsQuery();
+
+	const posts =
+		data?.posts.map((post) => ({
+			...post,
+			readingTime: getPostReadingTime(post.content),
+		})) || [];
 
 	useSpotlightActions(posts);
 
@@ -49,12 +62,12 @@ const Blog: NextPage<Props> = function ({ posts }) {
 	);
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	const posts = await getAllPostsMetadata();
+export const getStaticProps: GetStaticProps = async () => {
+	await client.query(AllPostsDocument).toPromise();
 
 	return {
 		props: {
-			posts,
+			urqlState: ssrCache.extractData(),
 		},
 	};
 };
