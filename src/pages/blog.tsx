@@ -2,12 +2,12 @@ import type { GetStaticProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
 
-import { Title } from "../src/components/atoms/Title";
-import { BlogList } from "../src/components/organisms/BlogList";
-import useSpotlightActions from "../src/hooks/useSpotlightActions";
-import BaseLayout from "../src/layouts/BaseLayout";
-import { client, ssrCache } from "../src/lib/urql";
-import { AllPostsDocument, useAllPostsQuery } from "../src/generated/graphql";
+import { Title } from "../components/atoms/Title";
+import { BlogList } from "../components/organisms/BlogList";
+import useSpotlightActions from "../hooks/useSpotlightActions";
+import BaseLayout from "../layouts/BaseLayout";
+import { client, ssrCache } from "../lib/urql";
+import { AllPostsDocument, useAllPostsQuery } from "../generated/graphql";
 
 const Wrapper = styled.div`
   display: flex;

@@ -2,11 +2,11 @@ import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
 
-import HyperLink from "../src/components/atoms/HipperLink";
-import { Title } from "../src/components/atoms/Title";
-import CareerList from "../src/components/organisms/CareerList";
-import EducationList from "../src/components/organisms/EducationList";
-import BaseLayout from "../src/layouts/BaseLayout";
+import HyperLink from "../components/atoms/HipperLink";
+import { Title } from "../components/atoms/Title";
+import CareerList from "../components/organisms/CareerList";
+import EducationList from "../components/organisms/EducationList";
+import BaseLayout from "../layouts/BaseLayout";
 
 const Wrapper = styled.div`
   display: flex;

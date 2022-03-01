@@ -8,19 +8,19 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import styled from "styled-components";
 
-import CodeBlock from "../src/components/atoms/CodeBlock";
-import HyperLink from "../src/components/atoms/HipperLink";
-import { Title } from "../src/components/atoms/Title";
-import CenteredImage from "../src/components/molecules/CenteredImage";
-import BaseLayout from "../src/layouts/BaseLayout";
-import { getPostReadingTime } from "../src/lib/post";
-import { client, ssrCache } from "../src/lib/urql";
+import CodeBlock from "../components/atoms/CodeBlock";
+import HyperLink from "../components/atoms/HipperLink";
+import { Title } from "../components/atoms/Title";
+import CenteredImage from "../components/molecules/CenteredImage";
+import BaseLayout from "../layouts/BaseLayout";
+import { getPostReadingTime } from "../lib/post";
+import { client, ssrCache } from "../lib/urql";
 import {
   AllPostsDocument,
   AllPostsQuery,
   GetPostBySlugDocument,
   useGetPostBySlugQuery,
-} from "../src/generated/graphql";
+} from "../generated/graphql";
 import NotFound from "./404";
 
 const Wrapper = styled.div`

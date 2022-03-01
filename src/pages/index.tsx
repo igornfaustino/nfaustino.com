@@ -4,9 +4,9 @@ import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
 
-import { Title } from "../src/components/atoms/Title";
-import TypeWriterText from "../src/components/atoms/TypeWriterText";
-import BaseLayout from "../src/layouts/BaseLayout";
+import { Title } from "../components/atoms/Title";
+import TypeWriterText from "../components/atoms/TypeWriterText";
+import BaseLayout from "../layouts/BaseLayout";
 
 const Wrapper = styled.div`
   display: flex;

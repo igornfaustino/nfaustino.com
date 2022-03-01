@@ -1,9 +1,9 @@
 import { parse } from "rss-to-json";
 import styled from "styled-components";
 
-import { Title } from "../src/components/atoms/Title";
-import { PodcastList } from "../src/components/organisms/PodcastList";
-import BaseLayout from "../src/layouts/BaseLayout";
+import { Title } from "../components/atoms/Title";
+import { PodcastList } from "../components/organisms/PodcastList";
+import BaseLayout from "../layouts/BaseLayout";
 
 const HOUR = 60 * 60;
 

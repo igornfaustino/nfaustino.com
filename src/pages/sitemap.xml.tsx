@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 
-import { client } from "../src/lib/urql";
-import { AllPostsDocument, AllPostsQuery } from "../src/generated/graphql";
+import { client } from "../lib/urql";
+import { AllPostsDocument, AllPostsQuery } from "../generated/graphql";
 
 const EXTERNAL_DATA_URL = "https://nfaustino.com";
 

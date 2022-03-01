@@ -1,10 +1,10 @@
 import { NextPage } from "next";
 import styled from "styled-components";
 
-import HyperLink from "../src/components/atoms/HipperLink";
-import { Title } from "../src/components/atoms/Title";
-import { ProjectList } from "../src/components/organisms/ProjectList";
-import BaseLayout from "../src/layouts/BaseLayout";
+import HyperLink from "../components/atoms/HipperLink";
+import { Title } from "../components/atoms/Title";
+import { ProjectList } from "../components/organisms/ProjectList";
+import BaseLayout from "../layouts/BaseLayout";
 
 const Wrapper = styled.div`
   display: flex;
