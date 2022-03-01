@@ -2,7 +2,7 @@ import { motion, TargetAndTransition, VariantLabels } from "framer-motion";
 import { RiSunLine, RiMoonLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import useTheme from "../../../hooks/useTheme";
+import useTheme from "../../hooks/useTheme";
 import { handleEnterKeyPress } from "../../../lib/keyup";
 
 const Wrapper = styled(motion.div)`

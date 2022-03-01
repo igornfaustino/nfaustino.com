@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import Header from "../src/components/molecules/Header";
 import SocialMediaInfo from "../src/components/molecules/SocialMediaInfo";
-import useSpotlightActions from "../hooks/useSpotlightActions";
+import useSpotlightActions from "../src/hooks/useSpotlightActions";
 
 const Wrapper = styled.div`
   display: flex;

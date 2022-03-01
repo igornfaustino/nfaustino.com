@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import { Title } from "../src/components/atoms/Title";
 import { BlogList } from "../src/components/organisms/BlogList";
-import useSpotlightActions from "../hooks/useSpotlightActions";
+import useSpotlightActions from "../src/hooks/useSpotlightActions";
 import BaseLayout from "../layouts/BaseLayout";
 import { client, ssrCache } from "../lib/urql";
 import { AllPostsDocument, useAllPostsQuery } from "../src/generated/graphql";
