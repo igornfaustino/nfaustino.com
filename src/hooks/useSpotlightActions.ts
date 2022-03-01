@@ -3,10 +3,10 @@ import { useRegisterActions } from 'kbar';
 import { useRouter } from 'next/dist/client/router';
 import { useAllPostsQuery } from '../generated/graphql';
 import useTheme from './useTheme';
-import { generatePagesActions } from '../../lib/spotlight/pages';
-import { generateSocialMediaActions } from '../../lib/spotlight/socialMedia';
-import { generatePreferenceActions } from '../../lib/spotlight/preferences';
-import { generatePostActions } from '../../lib/spotlight/posts';
+import { generatePagesActions } from '../lib/spotlight/pages';
+import { generateSocialMediaActions } from '../lib/spotlight/socialMedia';
+import { generatePreferenceActions } from '../lib/spotlight/preferences';
+import { generatePostActions } from '../lib/spotlight/posts';
 
 const useSpotlightActions = () => {
 	const router = useRouter();

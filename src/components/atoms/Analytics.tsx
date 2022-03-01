@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-import { GA_TRACKING_ID } from "../../../lib/gtag";
+import { GA_TRACKING_ID } from "../../lib/gtag";
 
 const Analytics = function () {
   return (

@@ -6,7 +6,7 @@ import { Title } from "../src/components/atoms/Title";
 import { BlogList } from "../src/components/organisms/BlogList";
 import useSpotlightActions from "../src/hooks/useSpotlightActions";
 import BaseLayout from "../layouts/BaseLayout";
-import { client, ssrCache } from "../lib/urql";
+import { client, ssrCache } from "../src/lib/urql";
 import { AllPostsDocument, useAllPostsQuery } from "../src/generated/graphql";
 
 const Wrapper = styled.div`

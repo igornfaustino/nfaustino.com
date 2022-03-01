@@ -2,7 +2,7 @@ import { format, parseISO } from "date-fns";
 import Link from "next/link";
 import styled from "styled-components";
 
-import { PostMetadata } from "../../../lib/post";
+import { PostMetadata } from "../../lib/post";
 import { ItemDescription } from "../atoms/list/ItemDescription";
 import { ItemTitle } from "../atoms/list/ItemTitle";
 import { LinkListItem } from "../atoms/list/LinkListItem";

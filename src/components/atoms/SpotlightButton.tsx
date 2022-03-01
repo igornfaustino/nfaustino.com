@@ -3,7 +3,7 @@ import { useKBar } from "kbar";
 import { RiSearchLine } from "react-icons/ri";
 import styled from "styled-components";
 
-import { handleEnterKeyPress } from "../../../lib/keyup";
+import { handleEnterKeyPress } from "../../lib/keyup";
 
 const Wrapper = styled(motion.div)`
   display: flex;

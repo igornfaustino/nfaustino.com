@@ -1,4 +1,4 @@
-import { AllPostsQuery } from "../../src/generated/graphql";
+import { AllPostsQuery } from "../../generated/graphql";
 
 export const generatePostActions = (posts: AllPostsQuery['posts'], redirect: (path: string) => () => void) => [
   {

@@ -3,7 +3,7 @@ import { RiSunLine, RiMoonLine } from "react-icons/ri";
 import styled from "styled-components";
 
 import useTheme from "../../hooks/useTheme";
-import { handleEnterKeyPress } from "../../../lib/keyup";
+import { handleEnterKeyPress } from "../../lib/keyup";
 
 const Wrapper = styled(motion.div)`
   display: flex;

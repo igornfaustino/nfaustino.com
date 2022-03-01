@@ -9,8 +9,8 @@ import {
 
 import { ThemeProvider } from "styled-components";
 
-import * as gtag from "../../lib/gtag";
-import { getCurrentThemeFromStore, saveThemeOnStore } from "../../lib/theme";
+import * as gtag from "../lib/gtag";
+import { getCurrentThemeFromStore, saveThemeOnStore } from "../lib/theme";
 import { darkTheme, lightTheme } from "../styles/theme";
 
 type Context = {

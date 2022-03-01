@@ -1,4 +1,4 @@
-import { PostMetadata } from "../../../lib/post";
+import { PostMetadata } from "../../lib/post";
 import { List } from "../atoms/list/List";
 import PostItem from "../molecules/PostItem";
 
