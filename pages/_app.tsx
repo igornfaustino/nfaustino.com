@@ -6,7 +6,7 @@ import Analytics from "../src/components/atoms/Analytics";
 import Spotlight from "../src/components/atoms/Spotlight";
 import CustomThemeProvider from "../src/contexts/CustomThemeProvider";
 import { client, ssrCache } from "../lib/urql";
-import { GlobalStyle } from "../styles/global";
+import { GlobalStyle } from "../src/styles/global";
 
 const MyApp = function ({ Component, pageProps }: AppProps) {
   if (pageProps.urqlState) {
