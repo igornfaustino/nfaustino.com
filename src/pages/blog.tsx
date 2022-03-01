@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import { Title } from "../components/atoms/Title";
 import { BlogList } from "../components/organisms/BlogList";
-import useSpotlightActions from "../hooks/useSpotlightActions";
 import BaseLayout from "../layouts/BaseLayout";
 import { client, ssrCache } from "../lib/urql";
 import { AllPostsDocument, useAllPostsQuery } from "../generated/graphql";
@@ -42,8 +41,6 @@ const Blog: NextPage = function () {
       ...post,
       readingTime: getPostReadingTime(post.content),
     })) || [];
-
-  useSpotlightActions(posts);
 
   return (
     <BaseLayout>
