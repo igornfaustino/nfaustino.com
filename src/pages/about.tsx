@@ -8,7 +8,9 @@ import { Title } from "../components/atoms/Title";
 import CareerList from "../components/organisms/CareerList";
 import EducationList from "../components/organisms/EducationList";
 import {
+  AboutInfoDocument,
   GetPageByUrlDocument,
+  useAboutInfoQuery,
   useGetPageByUrlQuery,
 } from "../generated/graphql";
 import BaseLayout from "../layouts/BaseLayout";
@@ -29,6 +31,7 @@ const Wrapper = styled.div`
 
 const About: NextPage = function () {
   const [{ data }] = useGetPageByUrlQuery({ variables: { url: "about" } });
+  const [{ data: AboutInfo }] = useAboutInfoQuery();
 
   return (
     <BaseLayout>
@@ -45,13 +48,13 @@ const About: NextPage = function () {
 
         <h2>Career</h2>
 
-        <CareerList />
+        <CareerList jobs={AboutInfo?.jobs || []} />
 
         <hr style={{ width: "100%" }} />
 
         <h2>Education</h2>
 
-        <EducationList />
+        <EducationList education={AboutInfo?.educations || []} />
       </Wrapper>
     </BaseLayout>
   );
@@ -61,6 +64,7 @@ const MINUTE = 60;
 
 export const getStaticProps: GetStaticProps = async () => {
   await client.query(GetPageByUrlDocument, { url: "about" }).toPromise();
+  await client.query(AboutInfoDocument).toPromise();
 
   return {
     props: {

@@ -1,18 +1,22 @@
-import { EDUCATION } from "../../../data/about";
+import { AboutInfoQuery } from "../../generated/graphql";
 import { List } from "../atoms/list/List";
 import EducationItem from "../molecules/EducationItem";
 
-const EducationList = function () {
+const EducationList = function ({
+  education,
+}: {
+  education: AboutInfoQuery["educations"];
+}) {
   return (
     <List>
-      {EDUCATION.map((education) => (
+      {education.map((education) => (
         <EducationItem
           key={`${education.school}-${education.course}`}
           course={education.course}
           school={education.school}
           location={education.location}
-          startYear={education.startYear}
-          endYear={education.endYear}
+          startYear={education.startYear.toString()}
+          endYear={education.endYear?.toString()}
         />
       ))}
     </List>

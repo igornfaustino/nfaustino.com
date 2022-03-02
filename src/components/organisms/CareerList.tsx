@@ -1,16 +1,16 @@
-import { JOBS } from "../../../data/about";
+import { AboutInfoQuery } from "../../generated/graphql";
 import { List } from "../atoms/list/List";
 import CareerItem from "../molecules/CareerItem";
 
-const CareerList = function () {
+const CareerList = function ({ jobs }: { jobs: AboutInfoQuery["jobs"] }) {
   return (
     <List>
-      {JOBS.map((job) => (
+      {jobs.map((job) => (
         <CareerItem
           key={`${job.company}-${job.position}`}
           position={job.position}
           company={job.company}
-          link={job.link}
+          link={job.link || "#"}
           location={job.location}
           start={job.start}
           end={job.end}

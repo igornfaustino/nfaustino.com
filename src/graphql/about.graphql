@@ -1,0 +1,32 @@
+query AboutInfo {
+  educations(orderBy: startYear_DESC) {
+    course
+    endYear
+    startYear
+    school
+    location
+    localizations {
+      course
+      endYear
+      location
+      school
+      startYear
+    }
+  }
+  jobs(orderBy: start_DESC) {
+    link
+    location
+    start
+    end
+    company
+    position
+    localizations {
+      start
+      location
+      company
+      end
+      position
+      link
+    }
+  }
+}
