@@ -1,17 +1,10 @@
-import { FC } from "react";
-
 import { format, parseISO } from "date-fns";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
 import styled from "styled-components";
 
-import CodeBlock from "../components/atoms/CodeBlock";
 import HyperLink from "../components/atoms/HipperLink";
-import { Title } from "../components/atoms/Title";
-import CenteredImage from "../components/molecules/CenteredImage";
 import BaseLayout from "../layouts/BaseLayout";
 import { getPostReadingTime } from "../lib/post";
 import { client, ssrCache } from "../lib/urql";
@@ -22,6 +15,8 @@ import {
   useGetPostBySlugQuery,
 } from "../generated/graphql";
 import NotFound from "./404";
+import Markdown from "../components/atoms/Markdown";
+import { Title } from "../components/atoms/Title";
 
 const Wrapper = styled.div`
   display: flex;
@@ -33,43 +28,6 @@ const Wrapper = styled.div`
 
   @media (max-width: 700px) {
     width: 100vw;
-  }
-
-  p {
-    width: 100%;
-  }
-
-  table,
-  tr,
-  td,
-  th {
-    border: 1px solid #555;
-  }
-
-  blockquote {
-    padding: 0 1em;
-    color: #6a737d;
-    border-left: 0.25em solid #dfe2e5;
-  }
-
-  .youtube-video-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .youtube-video-container::after {
-    display: block;
-    content: "";
-    padding-top: 56.25%;
-  }
-
-  .youtube-video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
   }
 `;
 
@@ -124,18 +82,7 @@ const Post: NextPage<{ slug: string }> = function ({ slug }) {
         <StyledTitle>{metadata.title}</StyledTitle>
         <Description>{metadata.description}</Description>
 
-        <ReactMarkdown
-          skipHtml={false}
-          rehypePlugins={[rehypeRaw]}
-          components={{
-            code: CodeBlock,
-            h1: Title as FC,
-            a: HyperLink as FC,
-            img: CenteredImage,
-          }}
-        >
-          {content}
-        </ReactMarkdown>
+        <Markdown content={content} />
       </Wrapper>
     </BaseLayout>
   );
