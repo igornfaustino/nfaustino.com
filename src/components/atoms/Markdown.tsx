@@ -51,6 +51,8 @@ const StyledMarkdown = styled(ReactMarkdown)`
   }
 `;
 
+const Link: FC = (props) => <HyperLink {...props} target="_blank" />;
+
 const Markdown = ({ content }: { content?: string | null }) => {
   return (
     <StyledMarkdown
@@ -59,7 +61,7 @@ const Markdown = ({ content }: { content?: string | null }) => {
       components={{
         code: CodeBlock,
         h1: Title as FC,
-        a: HyperLink as FC,
+        a: Link as FC,
         img: CenteredImage,
       }}
     >
