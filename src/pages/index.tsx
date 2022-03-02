@@ -1,12 +1,17 @@
 import { motion } from "framer-motion";
 import { useKBar } from "kbar";
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
 
 import { Title } from "../components/atoms/Title";
 import TypeWriterText from "../components/atoms/TypeWriterText";
+import {
+  GetPageByUrlDocument,
+  useGetPageByUrlQuery,
+} from "../generated/graphql";
 import BaseLayout from "../layouts/BaseLayout";
+import { client, ssrCache } from "../lib/urql";
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,6 +40,7 @@ const GetStarted = styled(motion.p)`
 
 const Home: NextPage = function () {
   const { query } = useKBar();
+  const [{ data }] = useGetPageByUrlQuery({ variables: { url: "index" } });
 
   return (
     <BaseLayout>
@@ -45,10 +51,8 @@ const Home: NextPage = function () {
 
       <Wrapper>
         <CenterGroup>
-          <Title>IGOR N FAUSTINO</Title>
-          <TypeWriterText>
-            Hi, I'm Igor. I'm currently working as a Web Developer at Aftersale
-          </TypeWriterText>
+          <Title>{data?.page?.title}</Title>
+          <TypeWriterText>{data?.page?.description || ""}</TypeWriterText>
           <GetStarted whileHover={{ scale: 1.1 }} onClick={query.toggle}>
             Get started →
           </GetStarted>
@@ -56,6 +60,19 @@ const Home: NextPage = function () {
       </Wrapper>
     </BaseLayout>
   );
+};
+
+const MINUTE = 60;
+
+export const getStaticProps: GetStaticProps = async () => {
+  await client.query(GetPageByUrlDocument, { url: "index" }).toPromise();
+
+  return {
+    props: {
+      urqlState: ssrCache.extractData(),
+    },
+    revalidate: 5 * MINUTE,
+  };
 };
 
 export default Home;
