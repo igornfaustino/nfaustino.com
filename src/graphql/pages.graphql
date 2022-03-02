@@ -1,0 +1,12 @@
+query GetPageByUrl($url: String) {
+  page(where: { url: $url }) {
+    locale
+    localizations {
+      title
+      description
+      locale
+    }
+    description
+    title
+  }
+}

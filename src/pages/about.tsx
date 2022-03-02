@@ -1,12 +1,18 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
 
 import HyperLink from "../components/atoms/HipperLink";
+import Markdown from "../components/atoms/Markdown";
 import { Title } from "../components/atoms/Title";
 import CareerList from "../components/organisms/CareerList";
 import EducationList from "../components/organisms/EducationList";
+import {
+  GetPageByUrlDocument,
+  useGetPageByUrlQuery,
+} from "../generated/graphql";
 import BaseLayout from "../layouts/BaseLayout";
+import { client, ssrCache } from "../lib/urql";
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,33 +28,18 @@ const Wrapper = styled.div`
 `;
 
 const About: NextPage = function () {
+  const [{ data }] = useGetPageByUrlQuery({ variables: { url: "about" } });
+
   return (
     <BaseLayout>
       <NextSeo
-        title="About"
-        description="Hi, my name is Igor. I've been addicted with the software engineering
-				since 2016, when I first join the university coursing a computer
-				science degree."
+        title={data?.page?.title}
+        description={data?.page?.description || ""}
       />
 
       <Wrapper>
-        <Title>About Me</Title>
-        <p>
-          Hi, my name is Igor. I've been addicted to software engineering since
-          2016 when I first joined the university coursing a computer science
-          degree.
-        </p>
-        <p>
-          I'm currently working as a web developer at{" "}
-          <HyperLink href="https://after.sale" target="_blank" rel="noreferrer">
-            Aftersale
-          </HyperLink>{" "}
-          where I help build solutions that can impact thousands of people.
-        </p>
-        <p>
-          I'm living in Brazil and when I'm not working I'll probably be playing
-          games, reading books or going for a run.
-        </p>
+        <Title>{data?.page?.title}</Title>
+        <Markdown content={data?.page?.description} />
 
         <hr style={{ width: "100%" }} />
 
@@ -64,6 +55,19 @@ const About: NextPage = function () {
       </Wrapper>
     </BaseLayout>
   );
+};
+
+const MINUTE = 60;
+
+export const getStaticProps: GetStaticProps = async () => {
+  await client.query(GetPageByUrlDocument, { url: "about" }).toPromise();
+
+  return {
+    props: {
+      urqlState: ssrCache.extractData(),
+    },
+    revalidate: 5 * MINUTE,
+  };
 };
 
 export default About;
