@@ -6,7 +6,13 @@ import { Title } from "../components/atoms/Title";
 import { BlogList } from "../components/organisms/BlogList";
 import BaseLayout from "../layouts/BaseLayout";
 import { client, ssrCache } from "../lib/urql";
-import { AllPostsDocument, useAllPostsQuery } from "../generated/graphql";
+import {
+  AllPostsDocument,
+  GetPageByUrlDocument,
+  useAllPostsQuery,
+  useGetPageByUrlQuery,
+} from "../generated/graphql";
+import Markdown from "../components/atoms/Markdown";
 
 const Wrapper = styled.div`
   display: flex;
@@ -30,9 +36,10 @@ export const getPostReadingTime = (content: string) => {
 };
 
 const Blog: NextPage = function () {
-  const pageDescription = `Here you will be able to find all posts I wrote. 
-	You can find posts about development, productivity, and everything that's in my mind. 
-	Posts are in both Portuguese and English. Hope you like :)`;
+  const [{ data: pageData }] = useGetPageByUrlQuery({
+    variables: { url: "blog" },
+  });
+  const pageDescription = pageData?.page?.description || "";
 
   const [{ data }] = useAllPostsQuery();
 
@@ -47,9 +54,9 @@ const Blog: NextPage = function () {
       <NextSeo title="Blog" description={pageDescription} />
 
       <Wrapper>
-        <Title>Personal Blog</Title>
+        <Title>{pageData?.page?.title}</Title>
 
-        <p>{pageDescription}</p>
+        <Markdown content={pageDescription} />
 
         <hr style={{ width: "100%" }} />
 
@@ -63,6 +70,7 @@ const MINUTE = 60;
 
 export const getStaticProps: GetStaticProps = async () => {
   await client.query(AllPostsDocument).toPromise();
+  await client.query(GetPageByUrlDocument, { url: "blog" }).toPromise();
 
   return {
     props: {
